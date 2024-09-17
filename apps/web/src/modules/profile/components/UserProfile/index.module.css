@@ -1,0 +1,38 @@
+.banner {
+  position: relative;
+  width: 100%;
+  height: rem(124px);
+  backdrop-filter: blur(50px);
+  border-bottom: rem(1px) solid var(--mantine-color-default-border);
+
+  @media (min-width: $mantine-breakpoint-xs) {
+    height: rem(142px);
+  }
+
+  @mixin light {
+    background: linear-gradient(
+      -124deg,
+      alpha(var(--mantine-color-blue-2), 0.24) 0%,
+      alpha(var(--mantine-color-blue-4), 0.42) 100%
+    );
+  }
+
+  @mixin dark {
+    background: linear-gradient(
+      -124deg,
+      alpha(var(--mantine-color-blue-1), 0.24) 0%,
+      alpha(var(--mantine-color-blue-2), 0.42) 100%
+    );
+  }
+}
+
+.avatarWrapper {
+  position: relative;
+  height: 46px;
+  pointer-events: none;
+}
+
+.avatar {
+  transform: translateY(-50%);
+  border: rem(1px) solid var(--mantine-color-default-border);
+}

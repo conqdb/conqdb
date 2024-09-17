@@ -1,0 +1,7 @@
+.copyIcon {
+  color: var(--mantine-color-default-color);
+}
+
+.copiedIcon {
+  color: var(--mantine-color-green-filled);
+}

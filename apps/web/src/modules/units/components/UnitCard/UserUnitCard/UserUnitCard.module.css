@@ -1,0 +1,16 @@
+.star {
+  width: 0.72rem;
+  height: 0.72rem;
+  display: block;
+}
+
+.starYellow {
+  color: var(--mantine-color-amber-8);
+}
+
+.leadership {
+  width: 0.9rem;
+  height: 0.9rem;
+  display: block;
+  fill: var(--mantine-color-dark-0);
+}

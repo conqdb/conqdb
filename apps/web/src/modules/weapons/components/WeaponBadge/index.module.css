@@ -1,0 +1,9 @@
+.primary {
+  @mixin light {
+    border: rem(1px) solid var(--mantine-color-gray-7);
+  }
+
+  @mixin dark {
+    border: rem(1px) solid var(--mantine-color-dark-6);
+  }
+}

@@ -1,0 +1,5 @@
+.weaponIcon {
+  @mixin light {
+    filter: hue-rotate(90deg) brightness(0.24);
+  }
+}

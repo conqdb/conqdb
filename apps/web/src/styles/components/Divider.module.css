@@ -1,0 +1,9 @@
+.root {
+  @mixin dark {
+    --divider-color: var(--mantine-color-default-border);
+  }
+
+  @mixin light {
+    --divider-color: var(--mantine-color-default-border);
+  }
+}

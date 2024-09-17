@@ -1,0 +1,20 @@
+.root {
+  /* text-transform: uppercase; */
+  font-weight: 500;
+  font-size: 0.9rem;
+  /* letter-spacing: rem(0.3); */
+  color: var(--mantine-color-gray-10);
+  transition: color 0.11s ease;
+
+  &:hover {
+    color: var(--mantine-color-gray-11);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-dark-1);
+
+    &:hover {
+      color: var(--mantine-color-dark-0);
+    }
+  }
+}

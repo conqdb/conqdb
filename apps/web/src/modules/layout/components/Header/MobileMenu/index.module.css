@@ -1,0 +1,76 @@
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  border-bottom: rem(1px) solid var(--mantine-color-default-border);
+}
+
+.main {
+  flex: 1;
+  padding-top: var(--mantine-spacing-md);
+  padding-bottom: var(--mantine-spacing-md);
+}
+
+.footer {
+  border-top: rem(1px) solid var(--mantine-color-default-border);
+}
+
+.link {
+  display: flex;
+  width: 100%;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+  transition: background 0.11s ease;
+  &:hover {
+    background: var(--menu-item-hover);
+  }
+}
+
+.chevron {
+  transition: transform 0.18s ease;
+}
+
+.chevronActive {
+  transform: rotate(-90deg);
+}
+
+.childLink {
+  padding: var(--mantine-spacing-xs);
+  border-radius: var(--mantine-radius-sm);
+
+  &:hover {
+    background-color: var(--menu-item-hover);
+  }
+}
+
+.disabled .childLabel,
+.disabled .childDescription,
+.disabled .childIcon {
+  opacity: 0.32;
+}
+
+.disabled.childLink {
+  cursor: not-allowed;
+  &:hover {
+    background: initial;
+  }
+}
+
+.comingSoon {
+  @mixin light {
+    color: var(--mantine-color-gray-8);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-dark-4);
+  }
+}
+
+.actionButton {
+  flex: 1;
+  padding: var(--mantine-spacing-md);
+}

@@ -1,0 +1,11 @@
+.root {
+  backdrop-filter: blur(rem(1px));
+
+  @mixin light {
+    background: alpha(var(--mantine-color-dark-0), 0.72);
+  }
+
+  @mixin dark {
+    background: alpha(var(--mantine-color-dark-11), 0.56);
+  }
+}

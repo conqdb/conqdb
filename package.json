@@ -1,0 +1,29 @@
+{
+  "name": "conqdb",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "turbo": "^2.1.1",
+    "typescript": "^5.5.2"
+  },
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "payload": "3.0.0-canary.0374de4",
+      "@types/react": "npm:types-react@rc",
+      "@types/react-dom": "npm:types-react-dom@rc"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

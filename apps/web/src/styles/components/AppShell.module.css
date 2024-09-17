@@ -1,0 +1,13 @@
+.root {
+  @mixin dark {
+    --app-shell-border-color: var(--mantine-color-default-border);
+  }
+
+  @mixin light {
+    --app-shell-border-color: var(--mantine-color-default-border);
+  }
+}
+
+.header {
+  --app-shell-transition-duration: 0;
+}

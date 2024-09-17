@@ -1,0 +1,25 @@
+.root {
+  @mixin light {
+    --_dropzone-bg: var(--mantine-color-gray-1);
+    --_dropzone-border-color: var(--mantine-color-gray-5);
+  }
+
+  @mixin dark {
+    --_dropzone-bg: var(--mantine-color-dark-9);
+    --_dropzone-border-color: var(--mantine-color-dark-6);
+  }
+}
+
+.root[data-activate-on-click]:not([data-loading]) {
+  @mixin light {
+    @mixin hover {
+      --_dropzone-bg: var(--mantine-color-gray-2);
+    }
+  }
+
+  @mixin dark {
+    @mixin hover {
+      --_dropzone-bg: var(--mantine-color-dark-8);
+    }
+  }
+}

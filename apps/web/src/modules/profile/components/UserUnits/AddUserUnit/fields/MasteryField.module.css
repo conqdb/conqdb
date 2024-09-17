@@ -1,0 +1,40 @@
+.btn {
+  width: rem(36px);
+  height: rem(36px);
+  padding: rem(4px);
+  position: relative;
+
+  &:hover .btnBg {
+    background: var(--mantine-color-default-hover);
+
+    @mixin dark {
+      background: var(--mantine-color-dark-7);
+    }
+  }
+}
+
+.btn:active .icon {
+  transform: translateY(rem(1px));
+}
+
+.btnBg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--mantine-radius-sm);
+  background: var(--mantine-color-default);
+  border: rem(1px) solid var(--mantine-color-default-border);
+  color: var(--mantine-color-default-color);
+  transition: background 0.18s ease;
+
+  @mixin dark {
+    background: var(--mantine-color-dark-9);
+  }
+}
+
+.icon {
+  transform: translateY(0);
+  transition: transform 0.11s ease;
+}

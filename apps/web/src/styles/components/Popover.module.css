@@ -1,0 +1,7 @@
+.dropdown {
+  --popover-border-color: var(--mantine-color-default-border);
+
+  @mixin dark {
+    background-color: var(--mantine-color-dark-9);
+  }
+}

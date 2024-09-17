@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.discord {
+  --discord-color: #5865f2;
+  background-color: var(--discord-color);
+  border: none;
+  color: white;
+  cursor: pointer;
+  /* height: 3.42rem; */
+  font: inherit;
+  outline: inherit;
+  /* width: 20rem; */
+  border-radius: var(--style-radius-m);
+  transition: all 0.18s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 1rem 1.72rem;
+  gap: 1.2rem;
+}
+
+.discordIcon svg path {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discordText {
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  /* margin-left: 1rem; */
+}
+
+.discord:hover {
+  --discord-color-hover: #4f5bd5;
+  background-color: var(--discord-color-hover);
+}
+
+.discord:active {
+  border-style: initial;
+  transform: translateY(1px);
+}

@@ -1,0 +1,21 @@
+.root {
+  @mixin dark {
+    background-color: var(--mantine-color-dark-10);
+  }
+
+  @mixin light {
+    background-color: var(--mantine-color-gray-1);
+  }
+}
+
+.root[data-with-border] {
+  @mixin dark {
+    border: calc(0.0625rem * var(--mantine-scale)) solid
+      var(--mantine-color-default-border);
+  }
+
+  @mixin light {
+    border: calc(0.0625rem * var(--mantine-scale)) solid
+      var(--mantine-color-default-border);
+  }
+}

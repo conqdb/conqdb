@@ -1,0 +1,126 @@
+.aspectRatio {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  opacity: 0.8;
+}
+
+.missing {
+  width: 33%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--mantine-color-dark-0);
+  opacity: 0.11;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.children {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: var(--mantine-spacing-xs);
+}
+
+.ratingRoot {
+  display: flex;
+  flex-direction: column;
+  width: rem(24px);
+  opacity: 1;
+
+  @mixin dark {
+    opacity: 0.72;
+  }
+}
+
+.leadershipIcon {
+  width: 1.2rem;
+  fill: var(--mantine-color-white);
+  @mixin dark {
+    opacity: 1;
+  }
+}
+
+.leadershipText {
+  color: var(--mantine-color-white);
+
+  @mixin dark {
+    opacity: 0.72;
+  }
+}
+
+.lightHidden {
+  @mixin light {
+    display: none;
+  }
+}
+
+.darkHidden {
+  @mixin dark {
+    display: none;
+  }
+}
+
+.addUnitCardWrapper {
+  position: relative;
+  cursor: pointer;
+
+  &:hover .addUnitCardOverlay {
+    backdrop-filter: blur(rem(2px));
+    transition: background-color 0.18s ease, backdrop-filter 0.36s ease;
+
+    @mixin light {
+      background-color: alpha(var(--mantine-color-gray-10), 0.42);
+    }
+
+    @mixin dark {
+      background-color: alpha(var(--mantine-color-dark-10), 0.42);
+    }
+  }
+
+  &:hover .addUnitCardOverlay svg {
+    transform: translateY(0);
+    transition: transform 0.18s ease;
+    opacity: 0.72;
+  }
+}
+
+.addUnitCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.11s ease, backdrop-filter 0.24s ease;
+  backdrop-filter: blur(rem(0px));
+
+  @mixin light {
+    color: var(--mantine-color-gray-0);
+    background-color: alpha(var(--mantine-color-gray-10), 0);
+  }
+
+  @mixin dark {
+    color: var(--mantine-color-dark-0);
+    background-color: alpha(var(--mantine-color-dark-10), 0);
+  }
+
+  & svg {
+    transform: translateY(2rem);
+    transition: transform 0.11s ease;
+    opacity: 0;
+  }
+}

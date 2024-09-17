@@ -1,0 +1,29 @@
+.dropdown {
+  --popover-border-color: var(--mantine-color-default-border);
+
+  @mixin light {
+    background-color: var(--mantine-color-gray-0);
+  }
+
+  @mixin dark {
+    background-color: var(--mantine-color-dark-10);
+  }
+}
+
+.arrow {
+  border-color: var(--mantine-color-default-border);
+}
+
+.divider {
+  border-color: var(--mantine-color-default-border);
+}
+
+/* .item[data-hovered] {
+    @mixin light {
+      background: var(--subtle-hover);
+    }
+  
+    @mixin dark {
+      background: var(--mantine-color-dark-alpha-10);
+    }
+  } */

@@ -1,0 +1,14 @@
+.root[data-variant="default"] {
+  --list-border-width: 1px;
+
+  @mixin light {
+    --tab-border-color: var(--mantine-color-default-border);
+    --tab-hover-color: var(--subtle-hover);
+  }
+
+  @mixin dark {
+    --tab-border-color: var(--mantine-color-default-border);
+    /* --_tab-hover-color: var(--mantine-color-dark-10); */
+    --tab-hover-color: var(--subtle-hover);
+  }
+}

@@ -1,0 +1,21 @@
+.dragContainer {
+  flex-grow: 1;
+}
+
+.item {
+  width: 100%;
+  border: rem(1px) solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-sm);
+  background: var(--mantine-color-body);
+  padding: var(--mantine-spacing-xs);
+}
+
+.draggableIcon {
+  color: var(--mantine-color-dimmed);
+}
+
+.weaponIcon {
+  @mixin light {
+    filter: hue-rotate(90deg) brightness(0.24);
+  }
+}

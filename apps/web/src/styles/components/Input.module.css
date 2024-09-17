@@ -1,0 +1,19 @@
+.input[data-variant="default"] {
+  @mixin light {
+    --input-bg: var(--mantine-color-gray-1);
+    --input-bd: var(--mantine-color-default-border);
+  }
+
+  @mixin dark {
+    --input-bg: var(--mantine-color-dark-9);
+    --input-bd: var(--mantine-color-default-border);
+  }
+}
+
+.input[data-variant="default"]:focus {
+  --input-bd: var(--mantine-primary-color-filled);
+}
+
+.input[data-error]:not([data-variant="unstyled"]) {
+  --input-bd: var(--mantine-color-error);
+}

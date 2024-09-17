@@ -1,0 +1,29 @@
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(34px);
+  height: rem(34px);
+  border-radius: var(--mantine-radius-md);
+  border: calc(0.0625rem * var(--mantine-scale)) solid var(--mantine-color-default-border);
+  background-color: var(--mantine-color-gray-1);
+
+  @mixin dark {
+    background-color: var(--mantine-color-dark-10);
+  }
+
+  @mixin hover {
+    background-color: var(--menu-item-hover);
+  }
+}
+
+.key {
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
