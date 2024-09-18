@@ -4,6 +4,7 @@
   "description": "A blank template to get started with Payload 3.0",
   "license": "MIT",
   "type": "module",
+  "packageManager": "pnpm@8.15.6",
   "exports": {
     "./config": "./src/payload.config.ts"
   },
