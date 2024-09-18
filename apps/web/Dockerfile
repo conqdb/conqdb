@@ -1,44 +1,71 @@
-FROM node:22.2-alpine AS runner
+FROM node:22.2-alpine AS base
+
+FROM base AS builder
+RUN apk update
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+RUN npm install -g turbo
+COPY . .
+RUN turbo prune @conqdb/web --docker
+
+
+
+# Add lockfile and package.json's of isolated subworkspace
+FROM base AS installer
+RUN apk update
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+RUN npm install -g pnpm@8.15.8
+
+COPY --from=builder /app/out/json/ .
+RUN pnpm install
+
+COPY --from=builder /app/out/full/ .
+
+# Uncomment and use build args to enable remote caching
+# ARG TURBO_TEAM
+# ENV TURBO_TEAM=$TURBO_TEAM
+
+# ARG TURBO_TOKEN
+# ENV TURBO_TOKEN=$TURBO_TOKEN
+
+RUN pnpm turbo run build --filter=@conqdb/web...
+
+
+
+FROM base AS runner
+
+# # Install curl for health check
+RUN apk add --no-cache curl
 
 WORKDIR /app
 
-# Install curl for health check
-RUN apk add --no-cache curl
-
-ENV NODE_ENV production
-
-ENV NEXT_TELEMETRY_DISABLED 1
-
-# Create a non-root user
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy the public folder
-COPY --chown=nextjs:nodejs public ./public
-
-# Set the correct permission for prerender cache
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
-# Copy the pre-build standalone output
-COPY --chown=nextjs:nodejs .next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
 
-# Copy the static files
-COPY --chown=nextjs:nodejs .next/static ./.next/static
-
-# Switch to non-root user
 USER nextjs
 
 EXPOSE 3000
 
 ENV PORT 3000
 
-#Health check instruction
+# Health check instruction
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
   CMD curl --fail http://localhost:3000/ || exit 1
 
-# server.js is created by next build from standalone output
-CMD ["node", "server.js"]
+CMD node apps/web/server.js
+
+
+
 
 # # From https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
 
