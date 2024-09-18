@@ -18,5 +18,3 @@ services:
       - S3_REGION=${S3_REGION}
     deploy:
       replicas: 3
-    labels:
-      - "traefik.http.services.web.loadbalancer.server.port=3000"
