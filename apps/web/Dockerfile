@@ -24,6 +24,8 @@ RUN pnpm install
 
 COPY --from=builder /app/out/full/ .
 
+ENV NODE_ENV production
+
 # Uncomment and use build args to enable remote caching
 # ARG TURBO_TEAM
 # ENV TURBO_TEAM=$TURBO_TEAM
@@ -41,6 +43,8 @@ FROM base AS runner
 RUN apk add --no-cache curl
 
 WORKDIR /app
+
+ENV NODE_ENV production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
