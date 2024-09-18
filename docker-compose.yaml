@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile
     environment:
       - SERVICE_FQDN_WEB_3000
-      - PAYLOAD_SECRET=${SERVICE_PASSWORD_WEB}
-      - NEXT_PUBLIC_APP_URL=${SERVICE_URL_WEB}
+      - PAYLOAD_SECRET=$SERVICE_PASSWORD_WEB
+      - NEXT_PUBLIC_APP_URL=$SERVICE_URL_WEB
       - DATABASE_URI=${DATABASE_URI}
       - REDIS_URL=${REDIS_URL}
       - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
@@ -16,5 +16,7 @@ services:
       - S3_BUCKET=${S3_BUCKET}
       - S3_ENDPOINT=${S3_ENDPOINT}
       - S3_REGION=${S3_REGION}
-    deploy:
-      replicas: 3
+    # deploy:
+    #   replicas: 3
+    # labels:
+    #   - "traefik.http.services.container_name.loadbalancer.server.port=3000"
