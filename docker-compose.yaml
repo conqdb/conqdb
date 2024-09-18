@@ -1,3 +1,5 @@
+#port 3000
+
 services:
   web:
     build:
@@ -5,8 +7,8 @@ services:
       dockerfile: Dockerfile
     environment:
       - SERVICE_FQDN_WEB_3000
-      - PAYLOAD_SECRET=$SERVICE_PASSWORD_WEB
-      - NEXT_PUBLIC_APP_URL=$SERVICE_URL_WEB
+      - PAYLOAD_SECRET=$SERVICE_BASE64_32_SECRET
+      - NEXT_PUBLIC_APP_URL=$SERVICE_FQDN_WEB
       - DATABASE_URI=${DATABASE_URI}
       - REDIS_URL=${REDIS_URL}
       - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID}
