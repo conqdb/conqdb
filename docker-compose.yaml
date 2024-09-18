@@ -1,13 +1,9 @@
-version: "3"
-
 services:
   web:
     build:
       context: ./apps/web
       dockerfile: Dockerfile
     environment:
-      - SERVICE_FQDN_WEB=/
-      - _APP_URL=$SERVICE_FQDN_WEB
       - SERVICE_FQDN_WEB_3000
       - PAYLOAD_SECRET=${SERVICE_PASSWORD_WEB}
       - NEXT_PUBLIC_APP_URL=${SERVICE_URL_WEB}
