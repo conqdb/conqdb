@@ -56,7 +56,9 @@ const nextConfig = {
 
     return config
   },
-  cacheHandler: process.env.REDIS_URL ? path.resolve('./cache-handler.mjs') : undefined,
+  cacheHandler:
+    process.env.NODE_ENV === 'production' ? path.resolve('./cache-handler.mjs') : undefined,
+  cacheMaxMemorySize: 0,
   output: 'standalone',
 }
 
