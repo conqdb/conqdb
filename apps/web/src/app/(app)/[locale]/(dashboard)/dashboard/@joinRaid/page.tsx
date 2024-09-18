@@ -16,7 +16,7 @@ const JoinARaid = async ({ params }: { params: { locale: string } }) => {
   return (
     <PageTemplate>
       <Container>
-        <Text>You don't belong to a raid...</Text>
+        <Text>You don&apos;t belong to a raid...</Text>
         <Button>Join a Raid</Button>
       </Container>
     </PageTemplate>

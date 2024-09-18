@@ -51,7 +51,8 @@ export const AddUserUnitProvider = ({
       )
       form.reset()
     }
-  }, [currentUnit])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUnit, userId])
 
   return <AddUserUnitFormProvider form={form}>{children}</AddUserUnitFormProvider>
 }
