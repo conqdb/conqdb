@@ -18,7 +18,7 @@
   },
   "pnpm": {
     "overrides": {
-      "payload": "3.0.0-canary.0374de4",
+      "payload": "3.0.0-beta.107",
       "@types/react": "npm:types-react@rc",
       "@types/react-dom": "npm:types-react-dom@rc"
     }

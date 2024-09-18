@@ -27,7 +27,6 @@ export interface Config {
     user: User;
     'user-unit': UserUnit;
     weapon: Weapon;
-    'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -357,89 +356,6 @@ export interface UserUnit {
   favourite?: boolean | null;
   hasLeadershipDoc?: boolean | null;
   masteryNodes?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-locked-documents".
- */
-export interface PayloadLockedDocument {
-  id: string;
-  document?:
-    | ({
-        relationTo: 'language';
-        value: string | Language;
-      } | null)
-    | ({
-        relationTo: 'media';
-        value: string | Media;
-      } | null)
-    | ({
-        relationTo: 'raid';
-        value: string | Raid;
-      } | null)
-    | ({
-        relationTo: 'raid-invite';
-        value: string | RaidInvite;
-      } | null)
-    | ({
-        relationTo: 'raid-member';
-        value: string | RaidMember;
-      } | null)
-    | ({
-        relationTo: 'raid-settings';
-        value: string | RaidSetting;
-      } | null)
-    | ({
-        relationTo: 'server';
-        value: string | Server;
-      } | null)
-    | ({
-        relationTo: 'session';
-        value: string | Session;
-      } | null)
-    | ({
-        relationTo: 'unit';
-        value: string | Unit;
-      } | null)
-    | ({
-        relationTo: 'unit-type';
-        value: string | UnitType;
-      } | null)
-    | ({
-        relationTo: 'unit-era';
-        value: string | UnitEra;
-      } | null)
-    | ({
-        relationTo: 'unit-category';
-        value: string | UnitCategory;
-      } | null)
-    | ({
-        relationTo: 'unit-tag';
-        value: string | UnitTag;
-      } | null)
-    | ({
-        relationTo: 'user';
-        value: string | User;
-      } | null)
-    | ({
-        relationTo: 'user-unit';
-        value: string | UserUnit;
-      } | null)
-    | ({
-        relationTo: 'weapon';
-        value: string | Weapon;
-      } | null);
-  globalSlug?: string | null;
-  _lastEdited: {
-    user: {
-      relationTo: 'user';
-      value: string | User;
-    };
-    editedAt?: string | null;
-  };
-  isLocked?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
