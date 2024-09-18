@@ -1,3 +1,6 @@
+#TODO (currently not working, as coolify has a bug with dynamic environment variables
+# Coolify also has issues with replicas in docker-compose, as each replica does not deploy with a unique container name
+
 #port 3000
 
 services:
