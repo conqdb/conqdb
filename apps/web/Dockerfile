@@ -13,18 +13,18 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy the pre-build standalone output
-COPY --chown=nextjs:nodejs .next/standalone ./
-
-# Copy the static files
-COPY --chown=nextjs:nodejs .next/static ./.next/static
-
 # Copy the public folder
 COPY --chown=nextjs:nodejs public ./public
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
+
+# Copy the pre-build standalone output
+COPY --chown=nextjs:nodejs .next/standalone ./
+
+# Copy the static files
+COPY --chown=nextjs:nodejs .next/static ./.next/static
 
 # Switch to non-root user
 USER nextjs
