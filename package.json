@@ -6,7 +6,9 @@
     "build:analyze": "turbo build:analyze",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "copy-static": "node -e \"const { cp } = require('fs'); const { join } = require('path'); const srcStatic = join('apps', 'web', '.next', 'static'); const destStatic = join('apps', 'web', '.next', 'standalone', 'apps', 'web', '.next', 'static'); const srcPublic = join('apps', 'web', 'public'); const destPublic = join('apps', 'web', '.next', 'standalone', 'apps', 'web', 'public'); cp(srcStatic, destStatic, { recursive: true }, (err) => { if (err) throw err; console.log('Static files copied'); }); cp(srcPublic, destPublic, { recursive: true }, (err) => { if (err) throw err; console.log('Public files copied'); });\"",
+    "run:web": "node apps/web/.next/standalone/apps/web/server.js"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

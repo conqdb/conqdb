@@ -21,6 +21,7 @@ const nextConfig = {
       '@mantine/spotlight',
       '@mantine/tiptap',
     ],
+    serverSourceMaps: process.env.ANALYZE === 'true',
   },
   serverExternalPackages: ['@aws-sdk/client-s3', 'pg', 'pino', 'pino-pretty', 'oslo'],
   images: {
@@ -65,6 +66,7 @@ const nextConfig = {
   //   process.env.NODE_ENV === 'production' ? path.resolve('./cache-handler.mjs') : undefined,
   // cacheMaxMemorySize: 0,
   output: 'standalone',
+  productionBrowserSourceMaps: process.env.ANALYZE === 'true',
 }
 
 export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true', openAnalyzer: true })(
