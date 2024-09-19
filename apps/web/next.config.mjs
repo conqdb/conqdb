@@ -1,6 +1,7 @@
 import createNextIntlPlugin from 'next-intl/plugin'
 import path from 'path'
 import { withPayload } from '@payloadcms/next/withPayload'
+import withBundleAnalyzer from '@next/bundle-analyzer'
 
 const withNextIntl = createNextIntlPlugin()
 
@@ -62,4 +63,6 @@ const nextConfig = {
   output: 'standalone',
 }
 
-export default withPayload(withNextIntl(nextConfig))
+export default withBundleAnalyzer({ enabled: process.env.ANALYZE === 'true', openAnalyzer: true })(
+  withPayload(withNextIntl(nextConfig)),
+)
