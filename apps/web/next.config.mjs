@@ -63,7 +63,7 @@ const nextConfig = {
    */
   // cacheHandler:
   //   process.env.NODE_ENV === 'production' ? path.resolve('./cache-handler.mjs') : undefined,
-  cacheMaxMemorySize: 0,
+  // cacheMaxMemorySize: 0,
   output: 'standalone',
 }
 
