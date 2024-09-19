@@ -6,10 +6,7 @@ import { cookies } from 'next/headers'
 import { redirect } from '@/navigation'
 import { redirect as nextRedirect } from 'next/navigation'
 
-export const login = async ({
-  redirectTo,
-  nativeRedirect = false,
-}: { redirectTo?: string; nativeRedirect?: boolean } = {}) => {
+export const login = async ({ redirectTo }: { redirectTo?: string } = {}) => {
   if (redirectTo) {
     cookies().set('redirectTo', redirectTo, {
       path: '/',
@@ -22,7 +19,7 @@ export const login = async ({
 
   const url = await createDiscordAuthorizationUrl()
 
-  nativeRedirect ? nextRedirect(url) : redirect(url)
+  return { url }
 }
 
 export const logout = async ({

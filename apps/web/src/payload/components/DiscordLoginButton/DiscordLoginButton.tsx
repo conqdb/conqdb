@@ -4,16 +4,23 @@ import classes from './DiscordLoginButton.module.css'
 import { DiscordIcon } from './DiscordIcon'
 import { useSearchParams } from 'next/navigation'
 import { login } from '@/modules/auth/actions'
+import { useRouter } from 'next/navigation'
 
 export const DiscordLoginButton = () => {
   const searchParams = useSearchParams()
   const redirect = searchParams.get('redirect') || '/admin'
+  const router = useRouter()
 
   const handleLogin = async () => {
-    await login({
+    const { url } = await login({
       redirectTo: redirect.startsWith('/admin') ? redirect : '/admin',
-      nativeRedirect: true,
     })
+
+    if (!url) {
+      return
+    }
+
+    return router.push(url)
   }
 
   return (
