@@ -1,9 +1,8 @@
-import { GLOBAL_SLUG } from '@/payload/constants'
 import { GlobalConfig } from 'payload'
 import { localizedText } from './localizedText'
 
 export const tNavigation: GlobalConfig = {
-  slug: GLOBAL_SLUG.T_NAVIGATION,
+  slug: 't-navigation',
   admin: {
     group: 'Translations',
   },

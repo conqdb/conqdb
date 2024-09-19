@@ -1,9 +1,8 @@
-import { GLOBAL_SLUG } from '@/payload/constants'
 import { GlobalConfig } from 'payload'
 import { localizedText } from './localizedText'
 
 export const tCommon: GlobalConfig = {
-  slug: GLOBAL_SLUG.T_COMMON,
+  slug: 't-common',
   admin: {
     group: 'Translations',
   },

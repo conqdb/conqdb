@@ -1,47 +1,46 @@
 import { buildCachedPayload } from '@payload-enchants/cached-local-api'
-import { COLLECTION_SLUG, GLOBAL_SLUG } from '../constants'
 import { revalidateTag, unstable_cache } from 'next/cache'
 
 export const { cachedPayloadPlugin, getCachedPayload } = buildCachedPayload({
   collections: [
     {
-      slug: COLLECTION_SLUG.SESSION,
+      slug: 'session',
     },
     {
-      slug: COLLECTION_SLUG.USER,
+      slug: 'user',
       findOneFields: ['slug'],
     },
     {
-      slug: COLLECTION_SLUG.LANGUAGE,
+      slug: 'language',
     },
     {
-      slug: COLLECTION_SLUG.WEAPON,
+      slug: 'weapon',
     },
     {
-      slug: COLLECTION_SLUG.UNIT,
+      slug: 'unit',
     },
     {
-      slug: COLLECTION_SLUG.USER_UNIT,
+      slug: 'user-unit',
     },
   ],
   globals: [
     {
-      slug: GLOBAL_SLUG.T_COMMON,
+      slug: 't-common',
     },
     {
-      slug: GLOBAL_SLUG.T_AUTH,
+      slug: 't-auth',
     },
     {
-      slug: GLOBAL_SLUG.T_NAVIGATION,
+      slug: 't-navigation',
     },
     {
-      slug: GLOBAL_SLUG.T_PROFILE,
+      slug: 't-profile',
     },
     {
-      slug: GLOBAL_SLUG.T_VALIDATION,
+      slug: 't-validation',
     },
   ],
-  loggerDebug: false,
+  loggerDebug: process.env.ANALYZE === 'true',
   revalidateTag,
   unstable_cache,
 })

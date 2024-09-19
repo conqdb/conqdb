@@ -1,7 +1,6 @@
 'use server'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import config from '@payload-config'
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { validateRequest } from '@/lib/lucia'
 import { createProfileSchema } from './components/CreateProfileForm/createProfile.schema'
 import { zodToFormErrors } from '@/utils/zodToFormErrors'
@@ -63,7 +62,7 @@ export const createProfile = async (data: FormData): Promise<FormResponse> => {
       const payload = await getPayloadHMR({ config })
 
       const result = await payload.update({
-        collection: COLLECTION_SLUG.USER,
+        collection: 'user',
         id: req.user.id,
         data: parsed.data,
       })
@@ -88,7 +87,7 @@ export const checkSlugAvailable = async (slug: string) => {
   const payload = await getPayloadHMR({ config })
 
   const { totalDocs } = await payload.count({
-    collection: COLLECTION_SLUG.USER,
+    collection: 'user',
     where: {
       slug: {
         equals: slug,
@@ -128,7 +127,7 @@ export const updateProfile = async (data: any): Promise<FormResponse> => {
       const payload = await getPayloadHMR({ config })
 
       const result = await payload.update({
-        collection: COLLECTION_SLUG.USER,
+        collection: 'user',
         id: req.user.id,
         data: parsed.data,
       })
@@ -185,7 +184,7 @@ export const addUserUnitAction = async (data: AddUserUnitSchema): Promise<FormRe
       const payload = await getPayloadHMR({ config })
 
       const result = await payload.create({
-        collection: COLLECTION_SLUG.USER_UNIT,
+        collection: 'user-unit',
         data: parsed.data,
       })
       return {
@@ -235,7 +234,7 @@ export const editUserUnitAction = async (
       const payload = await getPayloadHMR({ config })
 
       const result = await payload.update({
-        collection: COLLECTION_SLUG.USER_UNIT,
+        collection: 'user-unit',
         data: parsed.data,
         where: {
           and: [
@@ -294,7 +293,7 @@ export const deleteUserUnitAction = async (userUnitId: string): Promise<FormResp
     const payload = await getPayloadHMR({ config })
 
     await payload.delete({
-      collection: COLLECTION_SLUG.USER_UNIT,
+      collection: 'user-unit',
       where: {
         and: [
           {

@@ -1,8 +1,7 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { CollectionConfig } from 'payload'
 
 export const Language: CollectionConfig = {
-  slug: COLLECTION_SLUG.LANGUAGE,
+  slug: 'language',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'languageCode', 'countryCode'],

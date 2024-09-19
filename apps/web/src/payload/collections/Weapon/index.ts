@@ -1,9 +1,8 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { slug } from '@/payload/fields/slug'
 import { CollectionConfig } from 'payload'
 
 export const Weapon: CollectionConfig = {
-  slug: COLLECTION_SLUG.WEAPON,
+  slug: 'weapon',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'type', 'slug', 'updatedAt'],
@@ -47,7 +46,7 @@ export const Weapon: CollectionConfig = {
     {
       name: 'icon',
       type: 'upload',
-      relationTo: COLLECTION_SLUG.MEDIA,
+      relationTo: 'media',
     },
     slug('name'),
     {

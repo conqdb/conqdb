@@ -1,9 +1,8 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { visibleFor } from '@/payload/utils/visibleFor'
 import { CollectionConfig } from 'payload'
 
 export const Session: CollectionConfig = {
-  slug: COLLECTION_SLUG.SESSION,
+  slug: 'session',
   admin: {
     enableRichTextLink: false,
     enableRichTextRelationship: false,
@@ -21,7 +20,7 @@ export const Session: CollectionConfig = {
     {
       name: 'user',
       type: 'relationship',
-      relationTo: COLLECTION_SLUG.USER,
+      relationTo: 'user',
       required: true,
     },
     {

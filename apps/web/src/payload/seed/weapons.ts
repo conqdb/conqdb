@@ -1,11 +1,10 @@
 import { Payload } from 'payload'
-import { COLLECTION_SLUG } from '../constants'
 
 export const seedWeapons = async (payload: Payload) => {
   await Promise.all([
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Bow',
           type: 'light',
@@ -15,7 +14,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -26,7 +25,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Dual Blades',
           type: 'light',
@@ -36,7 +35,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -47,7 +46,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Short Bow',
           type: 'light',
@@ -57,7 +56,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -68,7 +67,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Chain Dart & Scimitar',
           type: 'light',
@@ -78,7 +77,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -89,7 +88,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Pike',
           type: 'medium',
@@ -99,7 +98,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -110,7 +109,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Musket',
           type: 'medium',
@@ -120,7 +119,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -131,7 +130,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Nodachi',
           type: 'medium',
@@ -141,7 +140,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -152,7 +151,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Spear',
           type: 'medium',
@@ -162,7 +161,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -173,7 +172,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Shortsword & Shield',
           type: 'heavy',
@@ -183,7 +182,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -194,7 +193,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Glaive',
           type: 'heavy',
@@ -204,7 +203,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -215,7 +214,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Poleaxe',
           type: 'heavy',
@@ -225,7 +224,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -236,7 +235,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Longsword & Shield',
           type: 'heavy',
@@ -246,7 +245,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {
@@ -257,7 +256,7 @@ export const seedWeapons = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.WEAPON,
+        collection: 'weapon',
         data: {
           name: 'Maul',
           type: 'heavy',
@@ -267,7 +266,7 @@ export const seedWeapons = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.WEAPON,
+          collection: 'weapon',
           id: res.id,
           locale: 'de',
           data: {

@@ -1,5 +1,4 @@
 import { validateRequest } from '@/lib/lucia'
-import { COLLECTION_SLUG } from '@/payload/constants'
 import type { CollectionConfig } from 'payload'
 import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin'
 import { visibleFor } from '@/payload/utils/visibleFor'
@@ -7,7 +6,7 @@ import { syncDiscordFields } from './hooks/syncDiscordFields'
 import { syncRaidMembership } from './hooks/syncRaidMembership'
 
 export const User: CollectionConfig = {
-  slug: COLLECTION_SLUG.USER,
+  slug: 'user',
   admin: {
     useAsTitle: 'username',
     defaultColumns: [
@@ -27,7 +26,7 @@ export const User: CollectionConfig = {
     beforeDelete: [
       ({ context }) => {
         if (!context.source) {
-          context.source = `delete-${COLLECTION_SLUG.USER}`
+          context.source = `delete-user`
         }
         return
       },
@@ -74,7 +73,7 @@ export const User: CollectionConfig = {
         {
           name: 'nativeLanguage',
           type: 'relationship',
-          relationTo: COLLECTION_SLUG.LANGUAGE,
+          relationTo: 'language',
           hasMany: false,
           admin: {
             width: '50%',
@@ -83,7 +82,7 @@ export const User: CollectionConfig = {
         {
           name: 'otherLanguages',
           type: 'relationship',
-          relationTo: COLLECTION_SLUG.LANGUAGE,
+          relationTo: 'language',
           hasMany: true,
           admin: {
             width: '50%',
@@ -127,7 +126,7 @@ export const User: CollectionConfig = {
         {
           name: 'weapon',
           type: 'relationship',
-          relationTo: COLLECTION_SLUG.WEAPON,
+          relationTo: 'weapon',
           hasMany: false,
         },
         {
@@ -171,7 +170,7 @@ export const User: CollectionConfig = {
     {
       name: 'raid',
       type: 'relationship',
-      relationTo: COLLECTION_SLUG.RAID,
+      relationTo: 'raid',
       hooks: {
         beforeChange: [syncRaidMembership],
       },

@@ -1,10 +1,9 @@
 import { Payload } from 'payload'
-import { COLLECTION_SLUG } from '../constants'
 
 export const seedLanguages = async (payload: Payload) => {
   await Promise.all([
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Albanian',
         languageCode: 'sq',
@@ -12,7 +11,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Arabic',
         languageCode: 'ar',
@@ -20,7 +19,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Armenian',
         languageCode: 'hy',
@@ -28,7 +27,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Belarusian',
         languageCode: 'be',
@@ -36,7 +35,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Bosnian',
         languageCode: 'bs',
@@ -44,7 +43,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Bulgarian',
         languageCode: 'bg',
@@ -52,7 +51,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Croatian',
         languageCode: 'hr',
@@ -60,7 +59,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Czech',
         languageCode: 'cs',
@@ -68,7 +67,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Danish',
         languageCode: 'da',
@@ -76,7 +75,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Dutch',
         languageCode: 'nl',
@@ -84,7 +83,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'English',
         languageCode: 'en',
@@ -92,7 +91,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Estonian',
         languageCode: 'et',
@@ -100,7 +99,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Finnish',
         languageCode: 'fi',
@@ -108,7 +107,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'French',
         languageCode: 'fr',
@@ -116,7 +115,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'German',
         languageCode: 'de',
@@ -124,7 +123,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Greek',
         languageCode: 'el',
@@ -132,7 +131,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Hebrew',
         languageCode: 'he',
@@ -140,7 +139,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Hungarian',
         languageCode: 'hu',
@@ -148,7 +147,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Irish',
         languageCode: 'ga',
@@ -156,7 +155,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Italian',
         languageCode: 'it',
@@ -164,7 +163,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Latvian',
         languageCode: 'lv',
@@ -172,7 +171,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Lithuanian',
         languageCode: 'lt',
@@ -180,7 +179,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Luxembourgish',
         languageCode: 'lb',
@@ -188,7 +187,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Norwegian',
         languageCode: 'no',
@@ -196,7 +195,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Polish',
         languageCode: 'pl',
@@ -204,7 +203,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Portuguese',
         languageCode: 'pt',
@@ -212,7 +211,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Romanian',
         languageCode: 'ro',
@@ -220,7 +219,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Russian',
         languageCode: 'ru',
@@ -228,7 +227,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Serbian',
         languageCode: 'sr',
@@ -236,7 +235,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Slovak',
         languageCode: 'sk',
@@ -244,7 +243,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Slovenia',
         languageCode: 'sl',
@@ -252,7 +251,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Spanish',
         languageCode: 'es',
@@ -260,7 +259,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Swedish',
         languageCode: 'sv',
@@ -268,7 +267,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Turkish',
         languageCode: 'tr',
@@ -276,7 +275,7 @@ export const seedLanguages = async (payload: Payload) => {
       },
     }),
     payload.create({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
       data: {
         name: 'Ukrainian',
         languageCode: 'uk',

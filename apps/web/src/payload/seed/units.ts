@@ -1,5 +1,4 @@
 import { Payload } from 'payload'
-import { COLLECTION_SLUG } from '../constants'
 import { slugToCamelCase } from '../utils/slugToCamelCase'
 
 type Map = {
@@ -10,7 +9,7 @@ export const seedUnits = async (payload: Payload) => {
   try {
     const era = await payload
       .find({
-        collection: COLLECTION_SLUG.UNIT_ERA,
+        collection: 'unit-era',
         limit: 0,
       })
       .then((res) => {
@@ -24,7 +23,7 @@ export const seedUnits = async (payload: Payload) => {
 
     const category = await payload
       .find({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         limit: 0,
       })
       .then((res) => {
@@ -39,7 +38,7 @@ export const seedUnits = async (payload: Payload) => {
 
     const type = await payload
       .find({
-        collection: COLLECTION_SLUG.UNIT_TYPE,
+        collection: 'unit-type',
         limit: 0,
       })
       .then((res) => {
@@ -66,7 +65,7 @@ export const seedUnits = async (payload: Payload) => {
 
     await Promise.all([
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Village Watchmen',
           leadership: 30,
@@ -83,7 +82,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Martellatori',
           leadership: 30,
@@ -100,7 +99,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Woodcutters',
           leadership: 40,
@@ -117,7 +116,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Tenant Farmers',
           leadership: 40,
@@ -134,7 +133,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Serfs',
           leadership: 40,
@@ -151,7 +150,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Archer Militia',
           leadership: 45,
@@ -168,7 +167,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Levy Bowmen',
           leadership: 50,
@@ -185,7 +184,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Demesne Pikemen',
           leadership: 55,
@@ -202,7 +201,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Black Dragon Archers',
           leadership: 60,
@@ -219,7 +218,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Alchemists',
           leadership: 60,
@@ -236,7 +235,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Sword Militia',
           leadership: 65,
@@ -253,7 +252,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Spear Militia',
           leadership: 80,
@@ -270,7 +269,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Sea Stag Deathdealers',
           leadership: 80,
@@ -287,7 +286,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Black Dragon Javelineers',
           leadership: 80,
@@ -304,7 +303,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Black Dragon Pikemen',
           leadership: 80,
@@ -321,7 +320,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Black Dragon Spearmen',
           leadership: 80,
@@ -338,7 +337,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Ironcap Bowriders',
           leadership: 90,
@@ -394,7 +393,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Demesne Archers',
           leadership: 90,
@@ -411,7 +410,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Bagpipers',
           leadership: 90,
@@ -428,7 +427,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Rattan Pikemen',
           leadership: 95,
@@ -485,7 +484,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Ironcap Swordsmen',
           leadership: 100,
@@ -541,7 +540,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Demesne Spearmen',
           leadership: 105,
@@ -595,7 +594,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Demesne Javelineers',
           leadership: 105,
@@ -650,7 +649,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Javelin Militia',
           leadership: 105,
@@ -706,7 +705,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Pike Militia',
           leadership: 110,
@@ -762,7 +761,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Demesne Crossbowmen',
           leadership: 110,
@@ -779,7 +778,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Ironcap Archers',
           leadership: 110,
@@ -796,7 +795,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Coutiliers',
           leadership: 115,
@@ -813,7 +812,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Rattan Roundshields',
           leadership: 115,
@@ -870,7 +869,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Ironcap Scout Cavalry',
           leadership: 120,
@@ -926,7 +925,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Ironcap Arquebusiers',
           leadership: 120,
@@ -943,7 +942,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Ironcap Spearmen',
           leadership: 135,
@@ -963,7 +962,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Khorchins',
           leadership: 140,
@@ -980,7 +979,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Cudgel Monks',
           leadership: 145,
@@ -997,7 +996,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Ronin',
           leadership: 145,
@@ -1014,7 +1013,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Selemchid Cavalry',
           leadership: 150,
@@ -1031,7 +1030,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Vanguard Archers',
           leadership: 150,
@@ -1048,7 +1047,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Mace Sergeants',
           leadership: 150,
@@ -1068,7 +1067,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Rattan Vipers',
           leadership: 155,
@@ -1085,7 +1084,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Squires',
           leadership: 155,
@@ -1105,7 +1104,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Wuxing Pikemen',
           leadership: 155,
@@ -1122,7 +1121,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Condottieri Guards',
           leadership: 160,
@@ -1139,7 +1138,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Demesne Arbalists',
           leadership: 160,
@@ -1156,7 +1155,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Halberdiers',
           leadership: 165,
@@ -1176,7 +1175,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Prefecture Pikemen',
           leadership: 165,
@@ -1193,7 +1192,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Landsknechts',
           leadership: 165,
@@ -1210,7 +1209,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Sons of Fenrir',
           leadership: 165,
@@ -1227,7 +1226,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Dimachaeri',
           leadership: 165,
@@ -1244,7 +1243,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Schutzdieners',
           leadership: 165,
@@ -1261,7 +1260,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Demesne Arquebusiers',
           leadership: 170,
@@ -1278,7 +1277,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Prefecture Guards',
           leadership: 170,
@@ -1298,7 +1297,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Jangjus',
           leadership: 170,
@@ -1315,7 +1314,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Rattan Marksmen',
           leadership: 175,
@@ -1335,7 +1334,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Zykalian Militia',
           leadership: 175,
@@ -1352,7 +1351,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Incendiary Archers',
           leadership: 180,
@@ -1369,7 +1368,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Namkhan Archers',
           leadership: 180,
@@ -1386,7 +1385,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Prefecture Archers',
           leadership: 180,
@@ -1403,7 +1402,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Janissaries',
           leadership: 180,
@@ -1420,7 +1419,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Outriders',
           leadership: 180,
@@ -1437,7 +1436,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Grayhair Garrison',
           leadership: 200,
@@ -1454,7 +1453,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Spear Sergeants',
           leadership: 215,
@@ -1471,7 +1470,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Men-at-Arms',
           leadership: 215,
@@ -1491,7 +1490,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Khevtuul Cavalry',
           leadership: 215,
@@ -1508,7 +1507,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Sipahis',
           leadership: 215,
@@ -1525,7 +1524,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Yeomen',
           leadership: 225,
@@ -1545,7 +1544,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Prefecture Heavy Cavalry',
           leadership: 225,
@@ -1565,7 +1564,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Tseregs',
           leadership: 225,
@@ -1582,7 +1581,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Azaps',
           leadership: 225,
@@ -1602,7 +1601,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Banner Guards',
           leadership: 225,
@@ -1619,7 +1618,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Halberdier Sergeants',
           leadership: 230,
@@ -1639,7 +1638,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Palace Guards',
           leadership: 230,
@@ -1659,7 +1658,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Javelin Sergeants',
           leadership: 230,
@@ -1679,7 +1678,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Axe Raiders',
           leadership: 230,
@@ -1696,7 +1695,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Huskarls',
           leadership: 230,
@@ -1713,7 +1712,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Kriegsbruders',
           leadership: 230,
@@ -1730,7 +1729,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Fortebraccio Pikemen',
           leadership: 235,
@@ -1747,7 +1746,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Imperial Archers',
           leadership: 235,
@@ -1767,7 +1766,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Symmachean Paladins',
           leadership: 235,
@@ -1784,7 +1783,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Armiger Lancers',
           leadership: 235,
@@ -1801,7 +1800,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Claymores',
           leadership: 235,
@@ -1818,7 +1817,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Camel Lancers',
           leadership: 235,
@@ -1835,7 +1834,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Onna Musha',
           leadership: 235,
@@ -1852,7 +1851,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Imperial Pike Guards',
           leadership: 240,
@@ -1872,7 +1871,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Imperial Spear Guards',
           leadership: 240,
@@ -1892,7 +1891,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Imperial Javelineers',
           leadership: 240,
@@ -1912,7 +1911,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Symmachean Stalwarts',
           leadership: 240,
@@ -1929,7 +1928,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Dagger Axe Lancers',
           leadership: 245,
@@ -1946,7 +1945,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Vassal Longbowmen',
           leadership: 245,
@@ -1963,7 +1962,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Kriegsrat Fusiliers',
           leadership: 245,
@@ -1983,7 +1982,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Imperial Arquebusiers',
           leadership: 245,
@@ -2003,7 +2002,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Berserkers',
           leadership: 245,
@@ -2020,7 +2019,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Myrmillones',
           leadership: 245,
@@ -2037,7 +2036,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Crescent Monks',
           leadership: 250,
@@ -2054,7 +2053,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Pavise Crossbowmen',
           leadership: 280,
@@ -2071,7 +2070,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Tercio Arquebusiers',
           leadership: 280,
@@ -2088,7 +2087,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Shieldmaidens',
           leadership: 280,
@@ -2105,7 +2104,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Fire Lancers',
           leadership: 285,
@@ -2122,7 +2121,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Varangian Guard',
           leadership: 290,
@@ -2139,7 +2138,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Rattan Rangers',
           leadership: 295,
@@ -2156,7 +2155,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Monastic Knights',
           leadership: 295,
@@ -2173,7 +2172,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Hashashins',
           leadership: 295,
@@ -2190,7 +2189,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Orochi Samurai',
           leadership: 295,
@@ -2207,7 +2206,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Iron Reapers',
           leadership: 300,
@@ -2224,7 +2223,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Kheshigs',
           leadership: 300,
@@ -2241,7 +2240,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Falconetti Gunners',
           leadership: 300,
@@ -2258,7 +2257,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Silahdars',
           leadership: 300,
@@ -2275,7 +2274,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Siphonarioi',
           leadership: 300,
@@ -2292,7 +2291,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Cataphract Lancers',
           leadership: 305,
@@ -2309,7 +2308,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Winged Hussars',
           leadership: 305,
@@ -2326,7 +2325,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Retiarii',
           leadership: 305,
@@ -2343,7 +2342,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Modao Battalion',
           leadership: 310,
@@ -2360,7 +2359,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Houndsmen',
           leadership: 310,
@@ -2377,7 +2376,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Zweihanders',
           leadership: 310,
@@ -2394,7 +2393,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Liaos Rangers',
           leadership: 315,
@@ -2411,7 +2410,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Shenji Grenadiers',
           leadership: 315,
@@ -2428,7 +2427,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Yanyuedao Cavalry',
           leadership: 320,
@@ -2445,7 +2444,7 @@ export const seedUnits = async (payload: Payload) => {
         },
       }),
       payload.create({
-        collection: COLLECTION_SLUG.UNIT,
+        collection: 'unit',
         data: {
           name: 'Chevaliers',
           leadership: 340,

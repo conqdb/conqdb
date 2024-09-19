@@ -1,8 +1,7 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { CollectionConfig } from 'payload'
 
 export const Server: CollectionConfig = {
-  slug: COLLECTION_SLUG.SERVER,
+  slug: 'server',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'code', 'createdAt'],

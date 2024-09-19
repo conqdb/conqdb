@@ -7,8 +7,7 @@ import { Lucia, User, Session } from 'lucia'
 import { PayloadAdapter } from './payloadAdapter'
 import { cache } from 'react'
 import { cookies } from 'next/headers'
-import { COLLECTION_SLUG } from '@/payload/constants'
-import { Language, Raid, RaidMember, User as UserType } from '@/payload-types'
+import { Language, Raid, User as UserType } from '@/payload-types'
 
 const adapter = PayloadAdapter.create()
 
@@ -21,7 +20,7 @@ export const lucia = new Lucia(adapter, {
   },
   getUserAttributes: (attributes) => {
     return {
-      collection: COLLECTION_SLUG.USER,
+      collection: 'user',
       discordId: attributes.discordId,
       discordUsername: attributes?.discordUsername,
       avatar: attributes?.avatar,

@@ -1,10 +1,9 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { slug } from '@/payload/fields/slug'
 import { CollectionConfig } from 'payload'
 import { setLeadershipDoc } from './hooks/setLeadershipDoc'
 
 export const Unit: CollectionConfig = {
-  slug: COLLECTION_SLUG.UNIT,
+  slug: 'unit',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'leadership', 'type', 'category', 'era', 'updatedAt'],
@@ -26,7 +25,7 @@ export const Unit: CollectionConfig = {
             {
               name: 'tags',
               type: 'relationship',
-              relationTo: COLLECTION_SLUG.UNIT_TAG,
+              relationTo: 'unit-tag',
               hasMany: true,
             },
             {
@@ -91,7 +90,7 @@ export const Unit: CollectionConfig = {
                 {
                   name: 'type',
                   type: 'relationship',
-                  relationTo: COLLECTION_SLUG.UNIT_TYPE,
+                  relationTo: 'unit-type',
                   required: true,
                   admin: {
                     width: '33.333%',
@@ -100,7 +99,7 @@ export const Unit: CollectionConfig = {
                 {
                   name: 'category',
                   type: 'relationship',
-                  relationTo: COLLECTION_SLUG.UNIT_CATEGORY,
+                  relationTo: 'unit-category',
                   required: true,
                   admin: {
                     width: '33.333%',
@@ -109,7 +108,7 @@ export const Unit: CollectionConfig = {
                 {
                   name: 'era',
                   type: 'relationship',
-                  relationTo: COLLECTION_SLUG.UNIT_ERA,
+                  relationTo: 'unit-era',
                   required: true,
                   admin: {
                     width: '33.333%',
@@ -120,7 +119,7 @@ export const Unit: CollectionConfig = {
             {
               name: 'image',
               type: 'upload',
-              relationTo: COLLECTION_SLUG.MEDIA,
+              relationTo: 'media',
             },
             {
               type: 'group',

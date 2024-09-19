@@ -1,11 +1,10 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { CollectionConfig } from 'payload'
 import { generateInviteCode } from './hooks/generateInviteCode'
 import { access } from '@/payload/access/access'
 import { visibleFor } from '@/payload/utils/visibleFor'
 
 export const RaidInvite: CollectionConfig = {
-  slug: COLLECTION_SLUG.RAID_INVITE,
+  slug: 'raid-invite',
   admin: {
     hidden: (args) => visibleFor(args, ['admin']),
     useAsTitle: 'code',
@@ -23,7 +22,7 @@ export const RaidInvite: CollectionConfig = {
       name: 'raid',
       type: 'relationship',
       required: true,
-      relationTo: COLLECTION_SLUG.RAID,
+      relationTo: 'raid',
       maxDepth: 0,
     },
     {

@@ -1,5 +1,4 @@
 import { APIError, Payload } from 'payload'
-import { COLLECTION_SLUG } from '../constants'
 import { seedLanguages } from './languages'
 import { seedWeapons } from './weapons'
 import { seedUnitCategories } from './unit-category'
@@ -12,27 +11,27 @@ export const seed = async (payload: Payload) => {
 
   try {
     const { totalDocs: languageCount } = await payload.count({
-      collection: COLLECTION_SLUG.LANGUAGE,
+      collection: 'language',
     })
 
     const { totalDocs: weaponCount } = await payload.count({
-      collection: COLLECTION_SLUG.WEAPON,
+      collection: 'weapon',
     })
 
     const { totalDocs: unitCategoryCount } = await payload.count({
-      collection: COLLECTION_SLUG.UNIT_CATEGORY,
+      collection: 'unit-category',
     })
 
     const { totalDocs: unitEraCount } = await payload.count({
-      collection: COLLECTION_SLUG.UNIT_ERA,
+      collection: 'unit-era',
     })
 
     const { totalDocs: unitTypeCount } = await payload.count({
-      collection: COLLECTION_SLUG.UNIT_TYPE,
+      collection: 'unit-type',
     })
 
     const { totalDocs: unitCount } = await payload.count({
-      collection: COLLECTION_SLUG.UNIT,
+      collection: 'unit',
     })
 
     if (!languageCount) {

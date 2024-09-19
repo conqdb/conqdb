@@ -4,7 +4,6 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-import { COLLECTION_SLUG } from './payload/constants'
 
 import { collections } from '@/payload/collections'
 import { globals } from '@/payload/globals'
@@ -19,7 +18,7 @@ const dirname = path.dirname(filename)
 
 export default buildConfig({
   admin: {
-    user: COLLECTION_SLUG.USER,
+    user: 'user',
     importMap: {
       baseDir: path.resolve(dirname),
     },

@@ -4,7 +4,6 @@ import { Payload } from 'payload'
 import config from '@/payload.config'
 import { getCachedPayload } from '@/payload/plugins/CachedPayload'
 import type { CachedPayload } from '@payload-enchants/cached-local-api'
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { Session, User } from '@/payload-types'
 
 export class PayloadAdapter implements Adapter {
@@ -41,7 +40,7 @@ export class PayloadAdapter implements Adapter {
 
   public async deleteSession(sessionId: string): Promise<void> {
     await this.payload!.delete({
-      collection: COLLECTION_SLUG.SESSION,
+      collection: 'session',
       where: {
         id: {
           equals: sessionId,
@@ -52,7 +51,7 @@ export class PayloadAdapter implements Adapter {
 
   public async deleteUserSessions(userId: UserId): Promise<void> {
     await this.payload!.delete({
-      collection: COLLECTION_SLUG.SESSION,
+      collection: 'session',
       where: {
         userId: {
           equals: userId,
@@ -66,7 +65,7 @@ export class PayloadAdapter implements Adapter {
   ): Promise<[session: DatabaseSession | null, user: DatabaseUser | null]> {
     try {
       const session = await this.cachedPayload?.findByID({
-        collection: COLLECTION_SLUG.SESSION,
+        collection: 'session',
         id: sessionId,
         disableErrors: true,
       })
@@ -83,7 +82,7 @@ export class PayloadAdapter implements Adapter {
 
   public async getUserSessions(userId: string): Promise<DatabaseSession[]> {
     const result = await this.cachedPayload!.find({
-      collection: COLLECTION_SLUG.SESSION,
+      collection: 'session',
       where: {
         user: {
           equals: userId,
@@ -98,7 +97,7 @@ export class PayloadAdapter implements Adapter {
 
   public async setSession(session: DatabaseSession): Promise<void> {
     await this.payload!.create({
-      collection: COLLECTION_SLUG.SESSION,
+      collection: 'session',
       data: {
         id: session.id,
         user: session.userId,
@@ -110,7 +109,7 @@ export class PayloadAdapter implements Adapter {
 
   public async updateSessionExpiration(sessionId: string, expiresAt: Date): Promise<void> {
     await this.payload!.update({
-      collection: COLLECTION_SLUG.SESSION,
+      collection: 'session',
       id: sessionId,
       data: {
         expiresAt: expiresAt.toISOString(),
@@ -123,7 +122,7 @@ export class PayloadAdapter implements Adapter {
    */
   public async deleteExpiredSessions(): Promise<void> {
     await this.payload!.delete({
-      collection: COLLECTION_SLUG.SESSION,
+      collection: 'session',
       where: {
         expiresAt: {
           less_than_equal: new Date(),

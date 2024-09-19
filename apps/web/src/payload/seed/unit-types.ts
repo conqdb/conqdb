@@ -1,11 +1,10 @@
 import { Payload } from 'payload'
-import { COLLECTION_SLUG } from '../constants'
 
 export const seedUnitTypes = async (payload: Payload) => {
   await Promise.all([
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_TYPE,
+        collection: 'unit-type',
         data: {
           name: 'Melee Infantry',
           slug: 'melee-infantry',
@@ -14,7 +13,7 @@ export const seedUnitTypes = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_TYPE,
+          collection: 'unit-type',
           id: res.id,
           locale: 'de',
           data: {
@@ -25,7 +24,7 @@ export const seedUnitTypes = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_TYPE,
+        collection: 'unit-type',
         data: {
           name: 'Ranged Infantry',
           slug: 'ranged-infantry',
@@ -34,7 +33,7 @@ export const seedUnitTypes = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_TYPE,
+          collection: 'unit-type',
           id: res.id,
           locale: 'de',
           data: {
@@ -45,7 +44,7 @@ export const seedUnitTypes = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_TYPE,
+        collection: 'unit-type',
         data: {
           name: 'Cavalry',
           slug: 'cavalry',
@@ -54,7 +53,7 @@ export const seedUnitTypes = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_TYPE,
+          collection: 'unit-type',
           id: res.id,
           locale: 'de',
           data: {

@@ -1,11 +1,10 @@
 import { Payload } from 'payload'
-import { COLLECTION_SLUG } from '../constants'
 
 export const seedUnitCategories = async (payload: Payload) => {
   await Promise.all([
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Buckler Shield',
           slug: 'buckler-shield',
@@ -14,7 +13,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -25,7 +24,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Polearm',
           slug: 'polearm',
@@ -34,7 +33,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -45,7 +44,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Tower Shield',
           slug: 'tower-shield',
@@ -54,7 +53,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -65,7 +64,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Javelin',
           slug: 'javelin',
@@ -74,7 +73,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -85,7 +84,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Archer',
           slug: 'archer',
@@ -94,7 +93,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -105,7 +104,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Arquebusier',
           slug: 'arquebusier',
@@ -114,7 +113,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -125,7 +124,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Crossbowman',
           slug: 'crossbowman',
@@ -134,7 +133,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -145,7 +144,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Lancer',
           slug: 'lancer',
@@ -154,7 +153,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -165,7 +164,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Melee',
           slug: 'melee',
@@ -174,7 +173,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {
@@ -185,7 +184,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       }),
     payload
       .create({
-        collection: COLLECTION_SLUG.UNIT_CATEGORY,
+        collection: 'unit-category',
         data: {
           name: 'Special',
           slug: 'special',
@@ -194,7 +193,7 @@ export const seedUnitCategories = async (payload: Payload) => {
       })
       .then(async (res) => {
         await payload.update({
-          collection: COLLECTION_SLUG.UNIT_CATEGORY,
+          collection: 'unit-category',
           id: res.id,
           locale: 'de',
           data: {

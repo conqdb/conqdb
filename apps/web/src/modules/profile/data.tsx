@@ -3,14 +3,13 @@ import config from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import { getCachedPayload } from '@/payload/plugins/CachedPayload'
 import { cache } from 'react'
-import { COLLECTION_SLUG } from '@/payload/constants'
 
 export const getUserBySlug = cache(async (slug: string) => {
   const payload = await getPayloadHMR({ config })
   const cachedPayload = getCachedPayload(payload)
 
   const user = await cachedPayload.findOne({
-    collection: COLLECTION_SLUG.USER,
+    collection: 'user',
     value: slug,
   })
 
@@ -22,7 +21,7 @@ export const getUserUnits = cache(async (userId: string) => {
   const cachedPayload = getCachedPayload(payload)
 
   const { docs } = await cachedPayload.find({
-    collection: COLLECTION_SLUG.USER_UNIT,
+    collection: 'user-unit',
     where: {
       user: {
         equals: userId,

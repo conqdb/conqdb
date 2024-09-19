@@ -1,11 +1,10 @@
 import { s3Storage } from '@payloadcms/storage-s3'
-import { COLLECTION_SLUG } from '../constants'
 
 export const S3Storage = s3Storage({
   enabled: process.env.S3_ACCESS_KEY ? true : false,
   collections: {
-    [COLLECTION_SLUG.MEDIA]: {
-      prefix: COLLECTION_SLUG.MEDIA,
+    media: {
+      prefix: 'media',
     },
   },
   bucket: process.env.S3_BUCKET ?? '',

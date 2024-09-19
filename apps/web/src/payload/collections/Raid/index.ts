@@ -1,10 +1,9 @@
 import { access } from '@/payload/access/access'
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { visibleFor } from '@/payload/utils/visibleFor'
 import { CollectionConfig } from 'payload'
 
 export const Raid: CollectionConfig = {
-  slug: COLLECTION_SLUG.RAID,
+  slug: 'raid',
   labels: {
     singular: 'Raid',
     plural: 'Raids',
@@ -28,7 +27,7 @@ export const Raid: CollectionConfig = {
     {
       name: 'owner',
       type: 'relationship',
-      relationTo: COLLECTION_SLUG.USER,
+      relationTo: 'user',
       required: true,
       admin: {
         position: 'sidebar',
@@ -37,7 +36,7 @@ export const Raid: CollectionConfig = {
     {
       name: 'server',
       type: 'relationship',
-      relationTo: COLLECTION_SLUG.SERVER,
+      relationTo: 'server',
       admin: {
         position: 'sidebar',
       },

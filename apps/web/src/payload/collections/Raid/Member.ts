@@ -1,12 +1,11 @@
 import { access } from '@/payload/access/access'
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { visibleFor } from '@/payload/utils/visibleFor'
 import { CollectionConfig } from 'payload'
 import { handleMemberRole } from './hooks/handleMemberRole'
 import { handleMemberDelete } from './hooks/handleMemberDelete'
 
 export const RaidMember: CollectionConfig = {
-  slug: COLLECTION_SLUG.RAID_MEMBER,
+  slug: 'raid-member',
   admin: {
     useAsTitle: 'raid',
     defaultColumns: ['user', 'raid', 'role', 'createdAt', 'updatedAt'],
@@ -26,7 +25,7 @@ export const RaidMember: CollectionConfig = {
     {
       name: 'raid',
       type: 'relationship',
-      relationTo: COLLECTION_SLUG.RAID,
+      relationTo: 'raid',
       required: true,
       hasMany: false,
       maxDepth: 0,
@@ -41,7 +40,7 @@ export const RaidMember: CollectionConfig = {
     {
       name: 'user',
       type: 'relationship',
-      relationTo: COLLECTION_SLUG.USER,
+      relationTo: 'user',
       required: true,
       hasMany: false,
       maxDepth: 0,

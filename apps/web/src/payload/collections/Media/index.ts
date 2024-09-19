@@ -1,10 +1,9 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { visibleFor } from '@/payload/utils/visibleFor'
 import type { CollectionConfig } from 'payload'
 import { generateBlurHash } from './hooks/generateBlurHash'
 
 export const Media: CollectionConfig = {
-  slug: COLLECTION_SLUG.MEDIA,
+  slug: 'media',
   admin: {
     defaultColumns: ['filename', 'url', 'mimeType', 'updatedAt'],
     enableRichTextLink: false,

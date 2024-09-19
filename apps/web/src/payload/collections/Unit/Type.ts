@@ -1,9 +1,8 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { slug } from '@/payload/fields/slug'
 import { CollectionConfig } from 'payload'
 
 export const UnitType: CollectionConfig = {
-  slug: COLLECTION_SLUG.UNIT_TYPE,
+  slug: 'unit-type',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'createdAt', 'updatedAt'],

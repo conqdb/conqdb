@@ -5,30 +5,29 @@ import { locales } from './locales'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import config from '@payload-config'
 import { getCachedPayload } from './payload/plugins/CachedPayload'
-import { GLOBAL_SLUG } from './payload/constants'
 
 const getTranslations = cache(async (locale: string) => {
   const payload = await getPayloadHMR({ config })
   const cachedPayload = getCachedPayload(payload)
 
   const common = await cachedPayload.findGlobal({
-    slug: GLOBAL_SLUG.T_COMMON,
+    slug: 't-common',
     locale: locale as any,
   })
   const auth = await cachedPayload.findGlobal({
-    slug: GLOBAL_SLUG.T_AUTH,
+    slug: 't-auth',
     locale: locale as any,
   })
   const navigation = await cachedPayload.findGlobal({
-    slug: GLOBAL_SLUG.T_NAVIGATION,
+    slug: 't-navigation',
     locale: locale as any,
   })
   const profile = await cachedPayload.findGlobal({
-    slug: GLOBAL_SLUG.T_PROFILE,
+    slug: 't-profile',
     locale: locale as any,
   })
   const validation = await cachedPayload.findGlobal({
-    slug: GLOBAL_SLUG.T_VALIDATION,
+    slug: 't-validation',
     locale: locale as any,
   })
 

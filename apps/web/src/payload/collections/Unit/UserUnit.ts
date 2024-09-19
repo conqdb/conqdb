@@ -1,8 +1,7 @@
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { CollectionConfig } from 'payload'
 
 export const UserUnit: CollectionConfig = {
-  slug: COLLECTION_SLUG.USER_UNIT,
+  slug: 'user-unit',
   admin: {
     useAsTitle: 'unit',
   },
@@ -13,14 +12,14 @@ export const UserUnit: CollectionConfig = {
         {
           name: 'user',
           type: 'relationship',
-          relationTo: COLLECTION_SLUG.USER,
+          relationTo: 'user',
           required: true,
           maxDepth: 0,
         },
         {
           name: 'unit',
           type: 'relationship',
-          relationTo: COLLECTION_SLUG.UNIT,
+          relationTo: 'unit',
           required: true,
           maxDepth: 0,
         },

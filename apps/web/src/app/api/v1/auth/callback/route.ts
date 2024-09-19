@@ -4,7 +4,6 @@ import { NextRequest } from 'next/server'
 import config from '@payload-config'
 import { OAuth2RequestError } from 'arctic'
 import { getDiscordUser } from '@/lib/lucia/discordProvider'
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { lucia } from '@/lib/lucia'
 
 export async function GET(request: NextRequest): Promise<Response> {
@@ -23,7 +22,7 @@ export async function GET(request: NextRequest): Promise<Response> {
     const discordUser = await getDiscordUser(code)
 
     const existingUser = await payload.find({
-      collection: COLLECTION_SLUG.USER,
+      collection: 'user',
       where: {
         discordId: {
           equals: discordUser.id,
@@ -35,7 +34,7 @@ export async function GET(request: NextRequest): Promise<Response> {
 
     if (!user) {
       user = await payload.create({
-        collection: COLLECTION_SLUG.USER,
+        collection: 'user',
         data: {
           discordId: discordUser.id,
           roles: ['user'],
@@ -44,7 +43,7 @@ export async function GET(request: NextRequest): Promise<Response> {
       })
     } else {
       await payload.update({
-        collection: COLLECTION_SLUG.USER,
+        collection: 'user',
         id: user.id,
         data: {
           metadata: discordUser,

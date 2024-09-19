@@ -1,5 +1,4 @@
 import { Raid, RaidMember, User } from '@/payload-types'
-import { COLLECTION_SLUG } from '@/payload/constants'
 import { APIError, FieldHook, Payload } from 'payload'
 
 const getExistingMembership = async (
@@ -10,7 +9,7 @@ const getExistingMembership = async (
     return null
   }
   const { docs } = await payload.find({
-    collection: COLLECTION_SLUG.RAID_MEMBER,
+    collection: 'raid-member',
     where: {
       and: [
         {
@@ -43,7 +42,7 @@ const createNewMembership = async (
   const typedRaid = raid as Raid | string
 
   const newMembership = await payload.create({
-    collection: COLLECTION_SLUG.RAID_MEMBER,
+    collection: 'raid-member',
     data: {
       raid: typeof typedRaid === 'string' ? typedRaid : typedRaid?.id,
       user: user,
@@ -51,7 +50,7 @@ const createNewMembership = async (
     },
 
     context: {
-      source: COLLECTION_SLUG.USER,
+      source: 'user',
     },
   })
 
@@ -105,7 +104,7 @@ export const syncRaidMembership: FieldHook<User> = async ({
 
       if (existingRaidMembership && existingRaidMembership.role !== 'banned') {
         await req.payload.update({
-          collection: COLLECTION_SLUG.RAID_MEMBER,
+          collection: 'raid-member',
           id: existingRaidMembership.id,
           data: {
             role: 'member',
@@ -130,7 +129,7 @@ export const syncRaidMembership: FieldHook<User> = async ({
     if (isChangingRaid && originalDoc && previousValue) {
       //set old raid to alumni role
       await req.payload.update({
-        collection: COLLECTION_SLUG.RAID_MEMBER,
+        collection: 'raid-member',
         where: {
           and: [
             {
@@ -163,7 +162,7 @@ export const syncRaidMembership: FieldHook<User> = async ({
 
       if (existingMembership && existingMembership.role !== 'banned') {
         await req.payload.update({
-          collection: COLLECTION_SLUG.RAID_MEMBER,
+          collection: 'raid-member',
           id: existingMembership.id,
           data: {
             role: 'member',
@@ -188,7 +187,7 @@ export const syncRaidMembership: FieldHook<User> = async ({
 
     if (isRemovingRaid && originalDoc?.raid) {
       await req.payload.update({
-        collection: COLLECTION_SLUG.RAID_MEMBER,
+        collection: 'raid-member',
         where: {
           and: [
             {

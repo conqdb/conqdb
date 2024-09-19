@@ -1,6 +1,5 @@
 import { RaidMember } from '@/payload-types'
-import { COLLECTION_SLUG } from '@/payload/constants'
-import { APIError, FieldHook } from 'payload'
+import { FieldHook } from 'payload'
 
 export const handleMemberRole: FieldHook<RaidMember> = async ({
   req,
@@ -41,7 +40,7 @@ export const handleMemberRole: FieldHook<RaidMember> = async ({
       if (userUpdateRequired && userId && raidId) {
         if (activeRoles.includes(value)) {
           await req.payload.update({
-            collection: COLLECTION_SLUG.RAID_MEMBER,
+            collection: 'raid-member',
             where: {
               and: [
                 {
@@ -62,7 +61,7 @@ export const handleMemberRole: FieldHook<RaidMember> = async ({
           })
 
           await req.payload.update({
-            collection: COLLECTION_SLUG.USER,
+            collection: 'user',
             id: userId,
             data: { raid: raidId },
             context: {
@@ -73,7 +72,7 @@ export const handleMemberRole: FieldHook<RaidMember> = async ({
 
         if (inactiveRoles.includes(value)) {
           await req.payload.update({
-            collection: COLLECTION_SLUG.USER,
+            collection: 'user',
             id: userId,
             data: { raid: null },
             context: {
