@@ -57,8 +57,12 @@ const nextConfig = {
 
     return config
   },
-  cacheHandler:
-    process.env.NODE_ENV === 'production' ? path.resolve('./cache-handler.mjs') : undefined,
+  /**
+   * @neshca/cache-handler does not support next@15 yet
+   * https://github.com/caching-tools/next-shared-cache/discussions/691
+   */
+  // cacheHandler:
+  //   process.env.NODE_ENV === 'production' ? path.resolve('./cache-handler.mjs') : undefined,
   cacheMaxMemorySize: 0,
   output: 'standalone',
 }
