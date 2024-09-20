@@ -20,6 +20,15 @@ export const { cachedPayloadPlugin, getCachedPayload } = buildCachedPayload({
       slug: 'unit',
     },
     {
+      slug: 'unit-type',
+    },
+    {
+      slug: 'unit-category',
+    },
+    {
+      slug: 'unit-era',
+    },
+    {
       slug: 'user-unit',
     },
   ],
