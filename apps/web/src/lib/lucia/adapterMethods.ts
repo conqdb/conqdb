@@ -1,7 +1,9 @@
 import { Session, User } from '@/payload-types'
 import { getCachedPayload } from '@/payload/plugins/CachedPayload'
 import { DatabaseSession, DatabaseUser, UserId } from 'lucia'
+import { unstable_cache } from 'next/cache'
 import { Payload } from 'payload'
+import { cache } from 'react'
 
 function transformIntoDatabaseSession(raw: Session): DatabaseSession {
   const { id, user, expiresAt, ...attributes } = raw
@@ -51,13 +53,20 @@ export const getSessionAndUserMethod = async (
   payload: Payload,
   sessionId: string,
 ): Promise<[session: DatabaseSession | null, user: DatabaseUser | null]> => {
-  const cachedPayload = getCachedPayload(payload)
   try {
-    const session = await cachedPayload.findByID({
-      collection: 'session',
-      id: sessionId,
-      disableErrors: true,
-    })
+    const getSession = unstable_cache(
+      async (sessionId) => {
+        return await payload.findByID({
+          collection: 'session',
+          id: sessionId,
+          disableErrors: true,
+        })
+      },
+      ['session'],
+      { tags: ['session', `session:${sessionId}`] },
+    )
+
+    const session = await getSession(sessionId)
 
     if (!session || typeof session?.user !== 'object') {
       return [null, null]
@@ -70,8 +79,7 @@ export const getSessionAndUserMethod = async (
 }
 
 export const getUserSessionsMethod = async (payload: Payload, userId: string) => {
-  const cachedPayload = getCachedPayload(payload)
-  const result = await cachedPayload!.find({
+  const result = await payload.find({
     collection: 'session',
     where: {
       user: {

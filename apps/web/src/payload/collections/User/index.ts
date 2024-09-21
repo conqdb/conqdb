@@ -4,6 +4,7 @@ import { visibleFor } from '@/payload/utils/visibleFor'
 import { syncDiscordFields } from './hooks/syncDiscordFields'
 import { syncRaidMembership } from './hooks/syncRaidMembership'
 import { luciaStrategy } from './luciaStrategy'
+import { revalidateUserAfterChange, revalidateUserAfterDelete } from './hooks/revalidateUser'
 
 export const User: CollectionConfig = {
   slug: 'user',
@@ -31,6 +32,8 @@ export const User: CollectionConfig = {
         return
       },
     ],
+    afterChange: [revalidateUserAfterChange],
+    afterDelete: [revalidateUserAfterDelete],
   },
   auth: {
     disableLocalStrategy: true,
