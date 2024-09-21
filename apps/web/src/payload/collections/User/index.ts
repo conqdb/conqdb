@@ -1,9 +1,9 @@
-import { validateRequest } from '@/lib/lucia'
 import type { CollectionConfig } from 'payload'
 import { ensureFirstUserIsAdmin } from './hooks/ensureFirstUserIsAdmin'
 import { visibleFor } from '@/payload/utils/visibleFor'
 import { syncDiscordFields } from './hooks/syncDiscordFields'
 import { syncRaidMembership } from './hooks/syncRaidMembership'
+import { luciaStrategy } from './luciaStrategy'
 
 export const User: CollectionConfig = {
   slug: 'user',
@@ -34,17 +34,7 @@ export const User: CollectionConfig = {
   },
   auth: {
     disableLocalStrategy: true,
-    strategies: [
-      {
-        name: 'discord',
-        authenticate: async () => {
-          const { user } = await validateRequest()
-          return {
-            user,
-          }
-        },
-      },
-    ],
+    strategies: [luciaStrategy],
   },
   fields: [
     {
