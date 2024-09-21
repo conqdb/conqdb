@@ -21,6 +21,7 @@ const nextConfig = {
       '@mantine/spotlight',
       '@mantine/tiptap',
     ],
+
     serverSourceMaps: process.env.ANALYZE === 'true',
   },
   serverExternalPackages: ['@aws-sdk/client-s3', 'pg', 'pino', 'pino-pretty', 'oslo'],
@@ -55,6 +56,9 @@ const nextConfig = {
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i
+
+    //Uncomment to remove minification:
+    config.optimization.minimize = process.env.ANALYZE !== 'true'
 
     return config
   },
