@@ -8,12 +8,13 @@ export const revalidateUserAfterChange: CollectionAfterChangeHook<User> = async 
   previousDoc,
 }) => {
   if (operation === 'update') {
+    console.log('revalidateAfterUserChange called with update operation')
     revalidateTag(`user:${previousDoc.id}`)
 
     const sessions = await req.payload.find({
       collection: 'session',
       where: {
-        userId: {
+        user: {
           equals: previousDoc.id,
         },
       },
