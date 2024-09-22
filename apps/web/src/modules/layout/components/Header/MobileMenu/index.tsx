@@ -36,23 +36,23 @@ export const MobileMenu = () => {
       </DrawerBody>
       <Box className={classes.footer}>
         <Group gap={0} w="100%">
-          <UnstyledButton className={clsx(classes.actionButton)}>
+          <Box className={clsx(classes.actionButton)}>
             <Stack w="100%" align="center" gap={4}>
               <LanguageSwitcher label={t('actions.switchLanguage')} tooltip={false} />
               <Text fz={8} fw={500} c="dimmed">
                 {t('actions.switchLanguage')}
               </Text>
             </Stack>
-          </UnstyledButton>
+          </Box>
           <Divider orientation="vertical" />
-          <UnstyledButton className={clsx(classes.actionButton)}>
+          <Box className={clsx(classes.actionButton)}>
             <Stack w="100%" align="center" gap={4}>
               <ThemeSwitcher label={t('actions.toggleColorScheme')} tooltip={false} />
               <Text fz={8} fw={500} c="dimmed">
                 {t('actions.toggleColorScheme')}
               </Text>
             </Stack>
-          </UnstyledButton>
+          </Box>
         </Group>
       </Box>
     </Drawer>
