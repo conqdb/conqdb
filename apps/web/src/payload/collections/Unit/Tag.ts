@@ -1,5 +1,4 @@
 import { access } from '@/payload/access/access'
-import { visibleFor } from '@/payload/utils/visibleFor'
 import { CollectionConfig } from 'payload'
 
 export const UnitTag: CollectionConfig = {
