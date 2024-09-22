@@ -1,9 +1,13 @@
 import { AccessArgs, AccessResult, User, Where } from 'payload'
+import { User as UserType } from '@/payload-types'
+
+type NonNullableRoles<T> = T extends (infer U)[] ? U : never
+type UserRole = NonNullableRoles<NonNullable<UserType['roles']>>
 
 interface AccessTypes {
   args: AccessArgs
   adminLock?: boolean
-  allowedRoles?: string[]
+  allowedRoles?: UserRole[]
   query?: Where
   roleOrQuery?: boolean
   requireRoleWithQuery?: boolean | Record<string, boolean | Where>
@@ -17,7 +21,7 @@ export const access = ({
   requireRoleWithQuery = false,
 }: AccessTypes): AccessResult => {
   const user = args.req.user
-  const roles: string[] = user?.roles || []
+  const roles = user?.roles || []
 
   // must be logged in to access
   if (!user) return false
@@ -60,10 +64,10 @@ export const access = ({
       return hasBooleanResponse
         ? true
         : roleSpecificQuery
-        ? roleSpecificQuery
-        : query
-        ? query
-        : false
+          ? roleSpecificQuery
+          : query
+            ? query
+            : false
     }
   }
 
