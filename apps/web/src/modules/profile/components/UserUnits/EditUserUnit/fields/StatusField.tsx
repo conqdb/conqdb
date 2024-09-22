@@ -35,6 +35,7 @@ export const StatusField: React.FC<StatusFieldProps> = ({ label, status }) => {
   }, [status])
   return (
     <Select
+      allowDeselect={false}
       label={
         <Group gap={8}>
           <Text size="sm">{label}</Text>
