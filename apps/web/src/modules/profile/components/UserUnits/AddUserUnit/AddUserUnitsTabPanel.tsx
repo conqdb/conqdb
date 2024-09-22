@@ -11,15 +11,13 @@ interface AddUnitTabPanel {
   value: string
   userId: string
 }
-export const AddUnitsTabPanel: React.FC<AddUnitTabPanel> = ({ value, data, userId }) => {
+export const AddUnitsTabPanel: React.FC<AddUnitTabPanel> = ({ value, data }) => {
   const open = useAddUserUnitStore((state) => state.openAddUnit)
-  const setTitle = useAddUserUnitStore((state) => state.setCurrentTitle)
   const setCurrentUnit = useAddUserUnitStore((state) => state.setCurrentUnit)
   const hideOwned = useAddUserUnitStore((state) => state.hideOwned)
 
   const handleAddUnit = (unit: Unit) => {
     setCurrentUnit(unit)
-    setTitle(unit?.name)
     open()
   }
 

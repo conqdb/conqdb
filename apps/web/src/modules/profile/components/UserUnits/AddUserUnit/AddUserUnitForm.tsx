@@ -15,6 +15,7 @@ export const AddUserUnitForm = ({ children }: { children: React.ReactNode }) => 
   const closeModal = useAddUserUnitStore((state) => state.closeAddUnit)
 
   const handleSubmit = async (values: AddUserUnitSchema) => {
+    console.log(values)
     try {
       setIsPending(true)
       const result = await addUserUnitAction(values)

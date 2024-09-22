@@ -35,7 +35,6 @@ export const AddUserUnitProvider = ({
 }) => {
   const t = useTranslations('validation')
   const form = useAddUserUnitForm({
-    mode: 'uncontrolled',
     initialValues: defaultAddUserUnitFormValues(),
     validate: zodResolver(addUserUnitSchema(t)),
   })

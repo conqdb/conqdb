@@ -1,5 +1,5 @@
 'use client'
-import React, { useMemo, useRef } from 'react'
+import React, { useCallback, useMemo, useRef } from 'react'
 import { useAddUserUnitFormContext } from '../AddUserUnitProvider'
 import {
   Box,
@@ -21,20 +21,18 @@ export const MasteryField = ({ label, max }: { label: string; max: string }) => 
   const handlersRef = useRef<NumberInputHandlers>(null)
   const currentUnit = useAddUserUnitStore((state) => state.currentUnit)
 
-  // const hasMastery = useMemo(() => {
-  //   if (typeof form.getValues().masteryNodes === 'number') {
-  //     return true
-  //   } else {
-  //     return false
-  //   }
-  // }, [form])
-  const hasMastery = useMemo(() => {
-    return Boolean(currentUnit?.mastery?.hasMastery)
+  const [hasMastery, maxMasteryNodes] = useMemo(() => {
+    const nodesLength = currentUnit?.mastery?.nodes?.length
+    return [
+      Boolean(currentUnit?.mastery?.hasMastery),
+      nodesLength && nodesLength > 0 ? nodesLength : MAX_MASTERY_NODES,
+    ]
   }, [currentUnit])
 
-  const handleMax = () => {
-    form.setFieldValue('masteryNodes', MAX_MASTERY_NODES)
-  }
+  const handleMax = useCallback(() => {
+    console.log(`handleMax called with amount ${maxMasteryNodes}`)
+    form.setFieldValue('masteryNodes', maxMasteryNodes)
+  }, [form, maxMasteryNodes])
 
   return hasMastery ? (
     <Stack gap={4}>
@@ -43,9 +41,12 @@ export const MasteryField = ({ label, max }: { label: string; max: string }) => 
       </Text>
       <Group gap={8}>
         <NumberInput
-          {...form.getInputProps('masteryNodes')}
           allowNegative={false}
-          max={currentUnit?.mastery?.nodes?.length || MAX_MASTERY_NODES}
+          max={
+            Array.isArray(currentUnit?.mastery?.nodes) && currentUnit?.mastery?.nodes?.length > 0
+              ? currentUnit?.mastery?.nodes?.length
+              : MAX_MASTERY_NODES
+          }
           clampBehavior="strict"
           hideControls
           handlersRef={handlersRef}
@@ -77,9 +78,10 @@ export const MasteryField = ({ label, max }: { label: string; max: string }) => 
               textAlign: 'center',
             },
           }}
+          {...form.getInputProps('masteryNodes')}
         />
         <Button variant="default" onClick={handleMax}>
-          Max
+          {max}
         </Button>
       </Group>
     </Stack>

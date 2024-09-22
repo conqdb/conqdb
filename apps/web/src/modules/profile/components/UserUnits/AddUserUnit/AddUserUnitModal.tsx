@@ -12,7 +12,7 @@ export const AddUserUnitModal = ({
 }) => {
   const modalOpened = useAddUserUnitStore((state) => state.addUnitOpened)
   const closeModal = useAddUserUnitStore((state) => state.closeAddUnit)
-  const unitLabel = useAddUserUnitStore((state) => state.currentTitle)
+  const currentUnit = useAddUserUnitStore((state) => state.currentUnit)
 
   return (
     <Modal
@@ -20,7 +20,7 @@ export const AddUserUnitModal = ({
       onClose={closeModal}
       title={
         <Text fw={500}>
-          {label}: {unitLabel}
+          {label}: {currentUnit?.name}
         </Text>
       }
     >

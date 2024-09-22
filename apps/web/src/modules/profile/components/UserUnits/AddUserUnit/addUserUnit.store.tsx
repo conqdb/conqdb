@@ -18,7 +18,6 @@ export type AddUserUnitActions = {
   openAddUnit: () => void
   closeAddUnit: () => void
   setIsPending: (value: boolean) => void
-  setCurrentTitle: (value: string) => void
   setCurrentUnit: (unit: Unit) => void
 }
 
@@ -37,7 +36,6 @@ const useAddUserUnitStoreBase = create<AddUserUnitStore>()((set) => ({
   openAddUnit: () => set({ addUnitOpened: true }),
   closeAddUnit: () => set({ addUnitOpened: false }),
   setIsPending: (value) => set({ isPending: value }),
-  setCurrentTitle: (value) => set({ currentTitle: value }),
   setCurrentUnit: (value) => set({ currentUnit: value }),
 }))
 

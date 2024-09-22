@@ -1,5 +1,5 @@
 'use client'
-import React, { useMemo, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { useEditUserUnitFormContext, useEditUserUnitStore } from '../EditUserUnitProvider'
 import {
   Box,
@@ -11,10 +11,8 @@ import {
   Text,
   UnstyledButton,
 } from '@mantine/core'
-import { MAX_MASTERY_NODES } from '@/constants'
 import { IconMinus, IconPlus } from '@tabler/icons-react'
 import classes from './MasteryField.module.css'
-import { useAddUserUnitStore } from '../../AddUserUnit/addUserUnit.store'
 
 export const MasteryField = ({ label, max }: { label: string; max: string }) => {
   const form = useEditUserUnitFormContext()
@@ -22,9 +20,9 @@ export const MasteryField = ({ label, max }: { label: string; max: string }) => 
   const hasMastery = useEditUserUnitStore((state) => state.hasMastery)
   const masteryNodes = useEditUserUnitStore((state) => state.masteryNodes)
 
-  const handleMax = () => {
-    form.setFieldValue('masteryNodes', MAX_MASTERY_NODES)
-  }
+  const handleMax = useCallback(() => {
+    form.setFieldValue('masteryNodes', masteryNodes)
+  }, [form, masteryNodes])
 
   return hasMastery ? (
     <Stack gap={4}>
@@ -69,7 +67,7 @@ export const MasteryField = ({ label, max }: { label: string; max: string }) => 
           }}
         />
         <Button variant="default" onClick={handleMax}>
-          Max
+          {max}
         </Button>
       </Group>
     </Stack>

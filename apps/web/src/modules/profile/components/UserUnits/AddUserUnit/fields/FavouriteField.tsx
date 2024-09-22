@@ -5,5 +5,6 @@ import { Switch } from '@mantine/core'
 
 export const FavouriteField = ({ label }: { label: string }) => {
   const form = useAddUserUnitFormContext()
-  return <Switch label={label} {...(form.getInputProps('favourite'), { type: 'checkbox' })} />
+
+  return <Switch label={label} {...form.getInputProps('favourite', { type: 'checkbox' })} />
 }
