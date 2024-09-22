@@ -1,3 +1,5 @@
+import { access } from '@/payload/access/access'
+import { visibleFor } from '@/payload/utils/visibleFor'
 import { CollectionConfig } from 'payload'
 
 export const Language: CollectionConfig = {
@@ -5,8 +7,16 @@ export const Language: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'languageCode', 'countryCode'],
+    group: 'Admin',
+    hidden: (args) => visibleFor(args, ['maintainer']),
   },
   defaultSort: 'name',
+  access: {
+    create: (args) => access({ args, allowedRoles: ['maintainer'] }),
+    read: (args) => access({ args, allowedRoles: ['maintainer'] }),
+    update: (args) => access({ args, allowedRoles: ['maintainer'] }),
+    delete: (args) => access({ args, allowedRoles: ['maintainer'] }),
+  },
   fields: [
     {
       name: 'name',
