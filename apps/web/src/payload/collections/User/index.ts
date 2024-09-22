@@ -47,6 +47,14 @@ export const User: CollectionConfig = {
       access({ args, query: args.req.user ? { id: { equals: args.req.user.id } } : undefined }),
     update: (args) => access({ args }),
     delete: (args) => access({ args }),
+    admin: (args) => {
+      return Boolean(
+        args.req.user &&
+          (args.req.user.roles?.includes('admin') ||
+            args.req.user.roles?.includes('maintainer') ||
+            args.req.user.roles?.includes('translator')),
+      )
+    },
   },
   fields: [
     {
