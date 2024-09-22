@@ -50,7 +50,7 @@ export const EditUserUnitProvider = ({ children }: EditUserUnitProviderProps) =>
     },
     validate: (values) => {
       const dirtyValues = getDirtyValues(values)
-      console.log(dirtyValues)
+
       const parsed = editUserUnitSchema(tv).safeParse({ userUnit: values.userUnit, ...dirtyValues })
       return parsed.error ? zodToFormErrors(parsed.error) : {}
     },
