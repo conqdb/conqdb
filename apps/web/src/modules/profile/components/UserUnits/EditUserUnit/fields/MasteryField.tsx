@@ -1,6 +1,6 @@
 'use client'
 import React, { useMemo, useRef } from 'react'
-import { useEditUserUnitFormContext } from '../EditUserUnitProvider'
+import { useEditUserUnitFormContext, useEditUserUnitStore } from '../EditUserUnitProvider'
 import {
   Box,
   Button,
@@ -14,18 +14,13 @@ import {
 import { MAX_MASTERY_NODES } from '@/constants'
 import { IconMinus, IconPlus } from '@tabler/icons-react'
 import classes from './MasteryField.module.css'
+import { useAddUserUnitStore } from '../../AddUserUnit/addUserUnit.store'
 
 export const MasteryField = ({ label, max }: { label: string; max: string }) => {
   const form = useEditUserUnitFormContext()
   const handlersRef = useRef<NumberInputHandlers>(null)
-
-  const hasMastery = useMemo(() => {
-    if (typeof form.getValues().masteryNodes === 'number') {
-      return true
-    } else {
-      return false
-    }
-  }, [form])
+  const hasMastery = useEditUserUnitStore((state) => state.hasMastery)
+  const masteryNodes = useEditUserUnitStore((state) => state.masteryNodes)
 
   const handleMax = () => {
     form.setFieldValue('masteryNodes', MAX_MASTERY_NODES)
@@ -40,7 +35,7 @@ export const MasteryField = ({ label, max }: { label: string; max: string }) => 
         <NumberInput
           {...form.getInputProps('masteryNodes')}
           allowNegative={false}
-          max={MAX_MASTERY_NODES}
+          max={masteryNodes}
           clampBehavior="strict"
           hideControls
           handlersRef={handlersRef}

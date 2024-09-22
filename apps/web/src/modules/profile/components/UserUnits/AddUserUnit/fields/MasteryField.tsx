@@ -14,18 +14,23 @@ import {
 import { MAX_MASTERY_NODES } from '@/constants'
 import { IconMinus, IconPlus } from '@tabler/icons-react'
 import classes from './MasteryField.module.css'
+import { useAddUserUnitStore } from '../addUserUnit.store'
 
 export const MasteryField = ({ label, max }: { label: string; max: string }) => {
   const form = useAddUserUnitFormContext()
   const handlersRef = useRef<NumberInputHandlers>(null)
+  const currentUnit = useAddUserUnitStore((state) => state.currentUnit)
 
+  // const hasMastery = useMemo(() => {
+  //   if (typeof form.getValues().masteryNodes === 'number') {
+  //     return true
+  //   } else {
+  //     return false
+  //   }
+  // }, [form])
   const hasMastery = useMemo(() => {
-    if (typeof form.getValues().masteryNodes === 'number') {
-      return true
-    } else {
-      return false
-    }
-  }, [form])
+    return Boolean(currentUnit?.mastery?.hasMastery)
+  }, [currentUnit])
 
   const handleMax = () => {
     form.setFieldValue('masteryNodes', MAX_MASTERY_NODES)
@@ -40,7 +45,7 @@ export const MasteryField = ({ label, max }: { label: string; max: string }) => 
         <NumberInput
           {...form.getInputProps('masteryNodes')}
           allowNegative={false}
-          max={MAX_MASTERY_NODES}
+          max={currentUnit?.mastery?.nodes?.length || MAX_MASTERY_NODES}
           clampBehavior="strict"
           hideControls
           handlersRef={handlersRef}

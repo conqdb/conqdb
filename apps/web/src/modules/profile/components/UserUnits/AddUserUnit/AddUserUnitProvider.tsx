@@ -14,7 +14,7 @@ export const defaultAddUserUnitFormValues = ({
   status = 'training',
   hasLeadershipDoc = false,
   favourite = false,
-  masteryNodes = null,
+  masteryNodes = 0,
 }: Partial<AddUserUnitSchema> = {}) => {
   return {
     user,
