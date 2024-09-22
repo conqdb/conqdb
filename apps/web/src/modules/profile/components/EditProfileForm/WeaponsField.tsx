@@ -146,22 +146,24 @@ export const WeaponsField = ({
           strategy={verticalListSortingStrategy}
         >
           <Stack gap={'xs'} className={classes.dragContainer}>
-            {form.getValues().weapons?.map((item, index) => (
-              <WeaponBlock
-                key={item.id}
-                item={item}
-                index={index}
-                weapon={getWeaponById(item.weapon, weapons)}
-                primary="Primary Weapon"
-                primaryId={form.getValues().weapons?.at(0)?.id || null}
-                editing={editing}
-                setEditing={setEditing}
-                leadershipLabel={leadershipLabel}
-                leadershipDescription={leadershipDescription}
-                leadershipTip={leadershipTip}
-                confirm={confirm}
-              />
-            ))}
+            {form
+              .getValues()
+              .weapons?.map((item, index) => (
+                <WeaponBlock
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  weapon={getWeaponById(item.weapon, weapons)}
+                  primary="Primary Weapon"
+                  primaryId={form.getValues().weapons?.at(0)?.id || null}
+                  editing={editing}
+                  setEditing={setEditing}
+                  leadershipLabel={leadershipLabel}
+                  leadershipDescription={leadershipDescription}
+                  leadershipTip={leadershipTip}
+                  confirm={confirm}
+                />
+              ))}
           </Stack>
         </SortableContext>
       </DndContext>
@@ -306,7 +308,7 @@ const WeaponBlock = memo(
                 clampBehavior="strict"
                 {...form.getInputProps(`weapons.${index}.leadership`)}
               />
-              <Button size="xs" onClick={handleEdit} mr="auto">
+              <Button size="xs" onClick={handleEdit} mr="auto" variant="light">
                 {confirm}
               </Button>
             </Stack>
