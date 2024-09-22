@@ -1,3 +1,4 @@
+import { canTranslateField } from '@/payload/access/canTranslateField'
 import { deepMerge } from '@/payload/utils/deepMerge'
 import { Field } from 'payload'
 
@@ -12,6 +13,9 @@ export const localizedText: LocalizedText = (fieldName, width = '100%', override
       defaultValue: '',
       admin: {
         width,
+      },
+      access: {
+        update: (args) => canTranslateField({ args }),
       },
     },
     overrides,

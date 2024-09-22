@@ -1,6 +1,7 @@
 import { visibleFor } from '@/payload/utils/visibleFor'
 import type { CollectionConfig } from 'payload'
 import { generateBlurHash } from './hooks/generateBlurHash'
+import { access } from '@/payload/access/access'
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -9,6 +10,7 @@ export const Media: CollectionConfig = {
     enableRichTextLink: false,
     enableRichTextRelationship: false,
     hidden: (args) => visibleFor(args, ['admin']),
+    group: 'Admin',
   },
   upload: {
     adminThumbnail: 'thumbnail',
@@ -47,6 +49,7 @@ export const Media: CollectionConfig = {
   },
   access: {
     read: () => true,
+    delete: (args) => access({ args }),
   },
   hooks: {
     beforeChange: [generateBlurHash],

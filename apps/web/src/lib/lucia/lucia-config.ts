@@ -14,6 +14,7 @@ export const getUserAttributes = (attributes: RegisteredDatabaseUserAttributes) 
     avatar: attributes?.avatar,
     raid: attributes?.raid,
     roles: attributes.roles,
+    editLanguages: attributes.editLanguages,
     username: attributes.username,
     slug: attributes.slug,
     level: attributes.level,

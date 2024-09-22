@@ -5,6 +5,8 @@ import { syncDiscordFields } from './hooks/syncDiscordFields'
 import { syncRaidMembership } from './hooks/syncRaidMembership'
 import { luciaStrategy } from './luciaStrategy'
 import { revalidateUserAfterChange, revalidateUserAfterDelete } from './hooks/revalidateUser'
+import { locales } from '@/payload/locales'
+import { access } from '@/payload/access/access'
 
 export const User: CollectionConfig = {
   slug: 'user',
@@ -38,6 +40,13 @@ export const User: CollectionConfig = {
   auth: {
     disableLocalStrategy: true,
     strategies: [luciaStrategy],
+  },
+  access: {
+    create: (args) => access({ args }),
+    read: (args) =>
+      access({ args, query: args.req.user ? { id: { equals: args.req.user.id } } : undefined }),
+    update: (args) => access({ args }),
+    delete: (args) => access({ args }),
   },
   fields: [
     {
@@ -208,6 +217,20 @@ export const User: CollectionConfig = {
           value: 'admin',
         },
       ],
+    },
+    {
+      name: 'editLanguages',
+      type: 'select',
+      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      },
+      options: locales.map((locale) => {
+        return {
+          value: locale.code,
+          label: locale.label,
+        }
+      }),
     },
     {
       name: 'metadata',

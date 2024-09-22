@@ -1,12 +1,26 @@
 import { slug } from '@/payload/fields/slug'
 import { CollectionConfig } from 'payload'
 import { setLeadershipDoc } from './hooks/setLeadershipDoc'
+import { visibleFor } from '@/payload/utils/visibleFor'
+import { access, UserRole } from '@/payload/access/access'
+import { canTranslateField } from '@/payload/access/canTranslateField'
+import { accessField } from '@/payload/access/accessField'
+
+export const canUpdateUnitsRoles: UserRole[] = ['maintainer']
 
 export const Unit: CollectionConfig = {
   slug: 'unit',
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'leadership', 'type', 'category', 'era', 'updatedAt'],
+    hidden: (args) => visibleFor(args, ['maintainer', 'translator']),
+    group: 'Database',
+  },
+  access: {
+    create: (args) => access({ args, allowedRoles: ['maintainer'] }),
+    read: (args) => access({ args, allowedRoles: ['maintainer', 'translator'] }),
+    update: (args) => access({ args, allowedRoles: ['maintainer', 'translator'] }),
+    delete: (args) => access({ args }),
   },
   fields: [
     {
@@ -20,6 +34,13 @@ export const Unit: CollectionConfig = {
               type: 'text',
               required: true,
               localized: true,
+              access: {
+                update: (args) =>
+                  canTranslateField({
+                    args,
+                    fallback: accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  }),
+              },
             },
 
             {
@@ -41,6 +62,9 @@ export const Unit: CollectionConfig = {
                     width: '50%',
                     step: 1,
                   },
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  },
                 },
                 {
                   name: 'leadershipDoc',
@@ -53,6 +77,9 @@ export const Unit: CollectionConfig = {
                   admin: {
                     width: '50%',
                     step: 1,
+                  },
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
                   },
                 },
               ],
@@ -70,6 +97,9 @@ export const Unit: CollectionConfig = {
                     width: '50%',
                     step: 0.5,
                   },
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  },
                 },
                 {
                   name: 'maxLevel',
@@ -80,6 +110,9 @@ export const Unit: CollectionConfig = {
                   admin: {
                     width: '50%',
                     step: 1,
+                  },
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
                   },
                 },
               ],
@@ -95,6 +128,9 @@ export const Unit: CollectionConfig = {
                   admin: {
                     width: '33.333%',
                   },
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  },
                 },
                 {
                   name: 'category',
@@ -103,6 +139,9 @@ export const Unit: CollectionConfig = {
                   required: true,
                   admin: {
                     width: '33.333%',
+                  },
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
                   },
                 },
                 {
@@ -113,6 +152,9 @@ export const Unit: CollectionConfig = {
                   admin: {
                     width: '33.333%',
                   },
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  },
                 },
               ],
             },
@@ -120,6 +162,9 @@ export const Unit: CollectionConfig = {
               name: 'image',
               type: 'upload',
               relationTo: 'media',
+              access: {
+                update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+              },
             },
             {
               type: 'group',
@@ -133,12 +178,18 @@ export const Unit: CollectionConfig = {
                       type: 'number',
                       required: true,
                       defaultValue: 0,
+                      access: {
+                        update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                      },
                     },
                     {
                       name: 'y',
                       type: 'number',
                       required: true,
                       defaultValue: 0,
+                      access: {
+                        update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                      },
                     },
                   ],
                 },
@@ -147,6 +198,9 @@ export const Unit: CollectionConfig = {
                   type: 'number',
                   required: true,
                   defaultValue: 1,
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  },
                 },
               ],
             },
@@ -161,6 +215,9 @@ export const Unit: CollectionConfig = {
               admin: {
                 position: 'sidebar',
               },
+              access: {
+                update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+              },
             },
             {
               name: 'nodes',
@@ -168,16 +225,25 @@ export const Unit: CollectionConfig = {
               admin: {
                 condition: (_, siblingData) => siblingData.hasMastery,
               },
+              access: {
+                update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+              },
               fields: [
                 {
                   name: 'title',
                   type: 'text',
                   localized: true,
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  },
                 },
                 {
                   name: 'description',
                   type: 'text',
                   localized: true,
+                  access: {
+                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  },
                 },
               ],
             },
@@ -185,6 +251,10 @@ export const Unit: CollectionConfig = {
         },
       ],
     },
-    slug('name'),
+    slug('name', {
+      access: {
+        update: (args) => accessField({ args }),
+      },
+    }),
   ],
 }

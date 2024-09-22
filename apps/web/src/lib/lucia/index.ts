@@ -26,6 +26,7 @@ interface DatabaseUserAttributes {
   avatar: string
   raid: Raid
   roles: UserType['roles']
+  editLanguages: UserType['editLanguages']
   username: string
   slug: string
   level: number

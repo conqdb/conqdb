@@ -11,7 +11,7 @@ import { UnitCategory } from './Unit/Category'
 import { UnitEra } from './Unit/Era'
 import { UnitTag } from './Unit/Tag'
 import { UnitType } from './Unit/Type'
-import { UserUnit } from './Unit/UserUnit'
+import { UserUnit } from './User/UserUnit'
 import { User } from './User'
 import { Weapon } from './Weapon'
 
@@ -25,8 +25,8 @@ export const collections = [
   Server,
   Session,
   Unit,
-  UnitType,
   UnitEra,
+  UnitType,
   UnitCategory,
   UnitTag,
   User,

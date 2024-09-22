@@ -20,8 +20,8 @@ export interface Config {
     server: Server;
     session: Session;
     unit: Unit;
-    'unit-type': UnitType;
     'unit-era': UnitEra;
+    'unit-type': UnitType;
     'unit-category': UnitCategory;
     'unit-tag': UnitTag;
     user: User;
@@ -151,6 +151,7 @@ export interface User {
   avatar?: string | null;
   raid?: (string | null) | Raid;
   roles?: ('banned' | 'user' | 'member' | 'translator' | 'maintainer' | 'admin')[] | null;
+  editLanguages?: ('ar' | 'cz' | 'de' | 'en' | 'pl' | 'ru' | 'tr')[] | null;
   metadata?:
     | {
         [k: string]: unknown;

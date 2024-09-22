@@ -2,7 +2,7 @@ import { AccessArgs, AccessResult, User, Where } from 'payload'
 import { User as UserType } from '@/payload-types'
 
 type NonNullableRoles<T> = T extends (infer U)[] ? U : never
-type UserRole = NonNullableRoles<NonNullable<UserType['roles']>>
+export type UserRole = NonNullableRoles<NonNullable<UserType['roles']>>
 
 interface AccessTypes {
   args: AccessArgs
