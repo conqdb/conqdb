@@ -7,5 +7,5 @@ export const BurgerMenu = () => {
   const navOpened = useLayoutStore.use.navOpened()
   const toggleNav = useLayoutStore.use.toggleNav()
 
-  return <Burger opened={navOpened} onClick={toggleNav} hiddenFrom="sm" size="md" />
+  return <Burger opened={navOpened} onClick={toggleNav} hiddenFrom="md" size="md" />
 }
