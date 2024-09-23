@@ -207,6 +207,9 @@ importers:
       plaiceholder:
         specifier: ^3.0.0
         version: 3.0.0(sharp@0.32.6)
+      qs-esm:
+        specifier: ^7.0.2
+        version: 7.0.2
       react:
         specifier: ^19.0.0-rc-a99d8e8d-20240916
         version: 19.0.0-rc-fb9a90fa48-20240614
