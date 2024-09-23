@@ -1,0 +1,17 @@
+.unit-image-preview {
+  &__card {
+    position: relative;
+    width: 200px;
+    height: 266px;
+    overflow: hidden;
+    border: 1px solid var(--theme-border-color);
+  }
+
+  &__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: contain;
+  }
+}

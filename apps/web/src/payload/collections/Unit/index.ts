@@ -158,6 +158,7 @@ export const Unit: CollectionConfig = {
                 },
               ],
             },
+
             {
               name: 'image',
               type: 'upload',
@@ -167,39 +168,76 @@ export const Unit: CollectionConfig = {
               },
             },
             {
-              type: 'group',
-              name: 'imageSettings',
+              type: 'row',
               fields: [
                 {
-                  type: 'row',
+                  type: 'group',
+                  name: 'imageSettings',
+                  admin: {},
                   fields: [
                     {
-                      name: 'x',
-                      type: 'number',
-                      required: true,
-                      defaultValue: 0,
-                      access: {
-                        update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
-                      },
-                    },
-                    {
-                      name: 'y',
-                      type: 'number',
-                      required: true,
-                      defaultValue: 0,
-                      access: {
-                        update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
-                      },
+                      type: 'row',
+
+                      fields: [
+                        {
+                          name: 'x',
+                          type: 'number',
+                          required: true,
+                          defaultValue: 0,
+                          admin: {
+                            width: '50%',
+                            step: 1,
+                          },
+                          access: {
+                            update: (args) =>
+                              accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                          },
+                        },
+                        {
+                          name: 'y',
+                          type: 'number',
+                          required: true,
+                          defaultValue: 0,
+                          admin: { width: '50%', step: 1 },
+                          access: {
+                            update: (args) =>
+                              accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                          },
+                        },
+
+                        {
+                          name: 'scale',
+                          type: 'number',
+                          required: true,
+                          defaultValue: 1,
+                          admin: {
+                            width: '100%',
+                            step: 0.01,
+                          },
+                          access: {
+                            update: (args) =>
+                              accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                          },
+                        },
+                      ],
                     },
                   ],
                 },
                 {
-                  name: 'scale',
-                  type: 'number',
-                  required: true,
-                  defaultValue: 1,
-                  access: {
-                    update: (args) => accessField({ args, allowedRoles: canUpdateUnitsRoles }),
+                  name: 'imagePreview',
+                  type: 'ui',
+                  admin: {
+                    components: {
+                      Field: {
+                        path: '/payload/collections/Unit/components/UnitImagePreview',
+                        exportName: 'UnitImagePreview',
+                        clientProps: {
+                          serverURL: process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
+                        },
+                      },
+                    },
+
+                    disableListColumn: true,
                   },
                 },
               ],
