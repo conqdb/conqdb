@@ -22,6 +22,7 @@ export const User: CollectionConfig = {
     ],
     enableRichTextLink: false,
     enableRichTextRelationship: false,
+    group: 'Admin',
     hidden: (args) => visibleFor(args, ['admin']),
   },
   hooks: {

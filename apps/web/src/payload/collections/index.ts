@@ -16,20 +16,22 @@ import { User } from './User'
 import { Weapon } from './Weapon'
 
 export const collections = [
-  Language,
-  Media,
-  Raid,
-  RaidInvite,
-  RaidMember,
-  RaidSettings,
-  Server,
-  Session,
   Unit,
   UnitEra,
   UnitType,
   UnitCategory,
   UnitTag,
+  Weapon,
+  Server,
+
+  Raid,
+  RaidInvite,
+  RaidMember,
+  RaidSettings,
+
+  Media,
+  Language,
   User,
   UserUnit,
-  Weapon,
+  Session,
 ]

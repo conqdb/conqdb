@@ -8,7 +8,7 @@ export const Server: CollectionConfig = {
     useAsTitle: 'name',
     defaultColumns: ['name', 'code', 'createdAt'],
     hidden: (args) => visibleFor(args, ['maintainer']),
-    group: 'Admin',
+    group: 'Database',
   },
   access: {
     create: (args) => access({ args, allowedRoles: ['maintainer'] }),

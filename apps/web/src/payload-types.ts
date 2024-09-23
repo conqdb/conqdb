@@ -11,22 +11,22 @@ export interface Config {
     user: UserAuthOperations;
   };
   collections: {
-    language: Language;
-    media: Media;
-    raid: Raid;
-    'raid-invite': RaidInvite;
-    'raid-member': RaidMember;
-    'raid-settings': RaidSetting;
-    server: Server;
-    session: Session;
     unit: Unit;
     'unit-era': UnitEra;
     'unit-type': UnitType;
     'unit-category': UnitCategory;
     'unit-tag': UnitTag;
+    weapon: Weapon;
+    server: Server;
+    raid: Raid;
+    'raid-invite': RaidInvite;
+    'raid-member': RaidMember;
+    'raid-settings': RaidSetting;
+    media: Media;
+    language: Language;
     user: User;
     'user-unit': UserUnit;
-    weapon: Weapon;
+    session: Session;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -62,207 +62,6 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "language".
- */
-export interface Language {
-  id: string;
-  name?: string | null;
-  languageCode: string;
-  countryCode?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  blurHash?: string | null;
-  prefix?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-  sizes?: {
-    blur?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "raid".
- */
-export interface Raid {
-  id: string;
-  name?: string | null;
-  owner: string | User;
-  server?: (string | null) | Server;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "user".
- */
-export interface User {
-  id: string;
-  username?: string | null;
-  level?: number | null;
-  nativeLanguage?: (string | null) | Language;
-  otherLanguages?: (string | Language)[] | null;
-  lightLeadership?: number | null;
-  mediumLeadership?: number | null;
-  heavyLeadership?: number | null;
-  weapons?:
-    | {
-        weapon?: (string | null) | Weapon;
-        leadership?: number | null;
-        id?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  discordId: string;
-  discordUsername?: string | null;
-  avatar?: string | null;
-  raid?: (string | null) | Raid;
-  roles?: ('banned' | 'user' | 'member' | 'translator' | 'maintainer' | 'admin')[] | null;
-  editLanguages?: ('ar' | 'cz' | 'de' | 'en' | 'pl' | 'ru' | 'tr')[] | null;
-  metadata?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "weapon".
- */
-export interface Weapon {
-  id: string;
-  name?: string | null;
-  type?: ('light' | 'medium' | 'heavy') | null;
-  icon?: (string | null) | Media;
-  slug?: string | null;
-  weight?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "server".
- */
-export interface Server {
-  id: string;
-  name?: string | null;
-  code?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "raid-invite".
- */
-export interface RaidInvite {
-  id: string;
-  raid: string | Raid;
-  code: string;
-  conditions?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  expires?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "raid-member".
- */
-export interface RaidMember {
-  id: string;
-  raid: string | Raid;
-  user: string | User;
-  role: 'leader' | 'officer' | 'member' | 'alumni' | 'banned';
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "raid-settings".
- */
-export interface RaidSetting {
-  id: string;
-  raid: string | Raid;
-  owner?: (string | null) | User;
-  permissions?: {
-    leader?: {
-      members?: {
-        read?: boolean | null;
-        manage?: boolean | null;
-      };
-    };
-    officer?: {
-      members?: {
-        read?: boolean | null;
-        manage?: boolean | null;
-      };
-    };
-    member?: {
-      members?: {
-        read?: boolean | null;
-        manage?: boolean | null;
-      };
-    };
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "session".
- */
-export interface Session {
-  id: string;
-  user: string | User;
-  expiresAt: string;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -347,6 +146,196 @@ export interface UnitEra {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  blurHash?: string | null;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    blur?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "weapon".
+ */
+export interface Weapon {
+  id: string;
+  name?: string | null;
+  type?: ('light' | 'medium' | 'heavy') | null;
+  icon?: (string | null) | Media;
+  slug?: string | null;
+  weight?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "server".
+ */
+export interface Server {
+  id: string;
+  name?: string | null;
+  code?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "raid".
+ */
+export interface Raid {
+  id: string;
+  name?: string | null;
+  owner: string | User;
+  server?: (string | null) | Server;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "user".
+ */
+export interface User {
+  id: string;
+  username?: string | null;
+  level?: number | null;
+  nativeLanguage?: (string | null) | Language;
+  otherLanguages?: (string | Language)[] | null;
+  lightLeadership?: number | null;
+  mediumLeadership?: number | null;
+  heavyLeadership?: number | null;
+  weapons?:
+    | {
+        weapon?: (string | null) | Weapon;
+        leadership?: number | null;
+        id?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  discordId: string;
+  discordUsername?: string | null;
+  avatar?: string | null;
+  raid?: (string | null) | Raid;
+  roles?: ('banned' | 'user' | 'member' | 'translator' | 'maintainer' | 'admin')[] | null;
+  editLanguages?: ('ar' | 'cz' | 'de' | 'en' | 'pl' | 'ru' | 'tr')[] | null;
+  metadata?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "language".
+ */
+export interface Language {
+  id: string;
+  name?: string | null;
+  languageCode: string;
+  countryCode?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "raid-invite".
+ */
+export interface RaidInvite {
+  id: string;
+  raid: string | Raid;
+  code: string;
+  conditions?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  expires?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "raid-member".
+ */
+export interface RaidMember {
+  id: string;
+  raid: string | Raid;
+  user: string | User;
+  role: 'leader' | 'officer' | 'member' | 'alumni' | 'banned';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "raid-settings".
+ */
+export interface RaidSetting {
+  id: string;
+  raid: string | Raid;
+  owner?: (string | null) | User;
+  permissions?: {
+    leader?: {
+      members?: {
+        read?: boolean | null;
+        manage?: boolean | null;
+      };
+    };
+    officer?: {
+      members?: {
+        read?: boolean | null;
+        manage?: boolean | null;
+      };
+    };
+    member?: {
+      members?: {
+        read?: boolean | null;
+        manage?: boolean | null;
+      };
+    };
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "user-unit".
  */
 export interface UserUnit {
@@ -357,6 +346,17 @@ export interface UserUnit {
   favourite?: boolean | null;
   hasLeadershipDoc?: boolean | null;
   masteryNodes?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "session".
+ */
+export interface Session {
+  id: string;
+  user: string | User;
+  expiresAt: string;
   updatedAt: string;
   createdAt: string;
 }

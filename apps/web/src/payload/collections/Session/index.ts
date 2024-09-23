@@ -7,6 +7,7 @@ export const Session: CollectionConfig = {
   admin: {
     enableRichTextLink: false,
     enableRichTextRelationship: false,
+    group: 'Admin',
     hidden: (args) => visibleFor(args, ['admin']),
   },
   access: {
