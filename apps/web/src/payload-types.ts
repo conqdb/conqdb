@@ -575,6 +575,7 @@ export interface TProfile {
     addWeapon?: string | null;
     leadershipDescription?: string | null;
     leadershipTip?: string | null;
+    primary?: string | null;
   };
   raidManager?: string | null;
   exclusiveFeatures?: string | null;

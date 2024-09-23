@@ -143,6 +143,10 @@ export const tProfile: GlobalConfig = {
             }),
           ],
         },
+        {
+          type: 'row',
+          fields: [localizedText('primary', '50%')],
+        },
       ],
     },
     {

@@ -44,6 +44,7 @@ interface WeaponsFieldProps {
   leadershipDescription: string
   leadershipTip: string
   confirm: string
+  primaryWeapon: string
 }
 
 export const WeaponsField = ({
@@ -54,6 +55,7 @@ export const WeaponsField = ({
   leadershipDescription,
   leadershipTip,
   confirm,
+  primaryWeapon,
 }: WeaponsFieldProps) => {
   const form = useEditProfileFormContext()
   const sensors = useSensors(useSensor(PointerSensor), useSensor(KeyboardSensor))
@@ -154,7 +156,7 @@ export const WeaponsField = ({
                   item={item}
                   index={index}
                   weapon={getWeaponById(item.weapon, weapons)}
-                  primary="Primary Weapon"
+                  primary={primaryWeapon}
                   primaryId={form.getValues().weapons?.at(0)?.id || null}
                   editing={editing}
                   setEditing={setEditing}

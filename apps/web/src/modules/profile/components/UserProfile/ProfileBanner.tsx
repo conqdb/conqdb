@@ -73,6 +73,7 @@ export const ProfileBanner = async ({ user }: { user: User }) => {
                       leadershipDescription={tProfile('weapons.leadershipDescription')}
                       leadershipTip={tProfile('weapons.leadershipTip')}
                       confirm={tActions('confirm')}
+                      primaryWeapon={tProfile('weapons.primary')}
                     />
                   </Stack>
                 </EditProfileDrawer>
