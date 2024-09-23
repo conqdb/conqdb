@@ -14,6 +14,7 @@ import { ThemeProvider } from '@/modules/layout/components/ThemeProvider'
 import { Header } from '@/modules/layout/components/Header'
 import { NextIntlClientProvider } from 'next-intl'
 import pick from 'lodash.pick'
+import Script from 'next/script'
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -46,6 +47,11 @@ const RootLayout: React.FC<RootLayoutProps> = async ({ children, params: { local
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
+      <Script
+        defer
+        src={process.env.NEXT_PUBLIC_UMAMI_URL}
+        data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+      />
     </html>
   )
 }
