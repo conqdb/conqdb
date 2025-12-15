@@ -24,7 +24,7 @@ RUN pnpm install
 
 COPY --from=builder /app/out/full/ .
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Uncomment and use build args to enable remote caching
 # ARG TURBO_TEAM
@@ -44,7 +44,7 @@ RUN apk add --no-cache curl
 
 WORKDIR /app
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -60,7 +60,7 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV PORT 3000
+ENV PORT=3000
 
 # Health check instruction
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
