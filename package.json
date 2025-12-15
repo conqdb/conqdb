@@ -21,9 +21,7 @@
   },
   "pnpm": {
     "overrides": {
-      "payload": "3.0.0-beta.107",
-      "@types/react": "npm:types-react@rc",
-      "@types/react-dom": "npm:types-react-dom@rc"
+      "payload": "3.0.0-beta.107"
     }
   },
   "dependencies": {
